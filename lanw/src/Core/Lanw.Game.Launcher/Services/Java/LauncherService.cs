@@ -1,0 +1,223 @@
+using System.Diagnostics;
+using System.Text.Json;
+using Lanw.Cipher.Cipher.Nirvana;
+using Lanw.Cipher.Cipher.Nirvana.Protocols;
+using Lanw.Core.Utils;
+using Lanw.Core.Utils.Progress;
+using Lanw.Game.Launcher.Entities;
+using Lanw.Game.Launcher.Entities.WPFLauncher.NetGame.GameLaunch;
+using Lanw.Game.Launcher.Entities.WPFLauncher.NetGame.GameLaunch.Texture;
+using Lanw.Game.Launcher.Services.Java.RPC;
+using Lanw.Game.Launcher.Utils;
+using Lanw.WPFLauncher.Protocol;
+using Serilog;
+
+namespace Lanw.Game.Launcher.Services.Java;
+
+public sealed class LauncherService : IDisposable {
+    private readonly Skip32Cipher? _skip32;
+
+    private readonly int _socketPort;
+    private AuthLibProtocol? _authLibProtocol;
+
+    private bool _disposed;
+
+    private GameRpcService? _gameRpcService;
+
+    private EntityModsList? _modList;
+
+    public LauncherService(EntityLaunchGame entityLaunchGame)
+    {
+        Entity = entityLaunchGame;
+        _skip32 = new Skip32Cipher("SaintSteve".ToCharArray().Select(c => (byte)c).ToArray());
+        _socketPort = Tools.GetUnusedPort(9876);
+    }
+
+    public EntityLaunchGame Entity { get; }
+
+    private Process? GameProcess { get; set; }
+
+    public void Dispose()
+    {
+        Dispose(true);
+    }
+
+    private Process? GetProcess()
+    {
+        return GameProcess;
+    }
+
+    public int GetPid()
+    {
+        var process = GetProcess();
+        if (process == null) {
+            return -1;
+        }
+
+        return process.Id;
+    }
+
+    public Task ShutdownAsync()
+    {
+        try {
+            _gameRpcService?.CloseControlConnection();
+            if (IsRunning()) {
+                _authLibProtocol?.Dispose();
+                _gameRpcService?.CloseControlConnection();
+                GameProcess?.Kill();
+            }
+        } catch (Exception ex) {
+            Log.Warning(ex, "Error occurred during shutdown");
+        }
+
+        return Task.CompletedTask;
+    }
+
+    /**
+     * 是否运行中
+     * @return 真:正在运行
+     */
+    public bool IsRunning()
+    {
+        return GameProcess is { HasExited: false };
+    }
+
+    public async Task<LauncherService> LaunchGameAsync()
+    {
+        try {
+            await ExecuteLaunchStepsAsync();
+        } catch (Exception ex) {
+            Log.Error(ex, "Failed to launch game");
+            throw;
+        }
+
+        return this;
+    }
+
+    private async Task ExecuteLaunchStepsAsync()
+    {
+        var enumVersion = GameVersionConverter.Convert(Entity.GameVersionId);
+        _modList = await InstallGameModsAsync(enumVersion);
+        await PrepareMinecraftClientAsync(enumVersion);
+        var workingDirectory = SetupGameRuntime();
+        ApplyCoreMods(workingDirectory);
+        var commandService = InitializeLauncher(enumVersion, workingDirectory);
+        LaunchRpcService(enumVersion, commandService.RpcPort);
+        StartAuthenticationService();
+        await StartGameProcessAsync(commandService);
+    }
+
+    private async Task<EntityModsList?> InstallGameModsAsync(EnumGameVersion enumVersion)
+    {
+        return await InstallerService.InstallGameMods(enumVersion, Entity.GameId, Entity.GameType == EnumGType.ServerGame);
+    }
+
+    private static async Task PrepareMinecraftClientAsync(EnumGameVersion enumVersion)
+    {
+        await InstallerService.PrepareMinecraftClient(enumVersion);
+    }
+
+    private string SetupGameRuntime()
+    {
+        var path = InstallerService.PrepareGameRuntime(Entity.GameId, Entity.RoleName, Entity.GameType);
+        return Path.Combine(path, ".minecraft");
+    }
+
+    private void ApplyCoreMods(string workingDirectory)
+    {
+        var text = Path.Combine(workingDirectory, "mods");
+        if (Entity.LoadCoreMods)
+            InstallerService.InstallCoreMods(Entity.GameId, text);
+        else
+            RemoveCoreModFiles(text);
+    }
+
+    private static void RemoveCoreModFiles(string modsPath)
+    {
+        var array = FileUtil.EnumerateFiles(modsPath, "jar");
+        foreach (var text in array) {
+            if (text.Contains("@3")) {
+                FileUtil.DeleteFileSafe(text);
+            }
+        }
+    }
+
+    private CommandService InitializeLauncher(EnumGameVersion enumVersion, string workingDirectory)
+    {
+        ArgumentNullException.ThrowIfNull(_skip32);
+
+        var commandService = new CommandService {
+            GameVersion = enumVersion,
+            LauncherGame = Entity,
+            WorkPath = workingDirectory,
+            Uuid = _skip32.GenerateRoleUuid(Entity.RoleName, Convert.ToUInt32(Entity.Account.GetUserId())),
+            SocketPort = _socketPort,
+            ProtocolVersion = X19.GameVersion,
+            RpcPort = Tools.GetUnusedPort(11413)
+        };
+
+        return commandService.Init();
+    }
+
+    private void LaunchRpcService(EnumGameVersion gameVersion, int rpcPort)
+    {
+        var text = Path.Combine(PathUtil.CachePath, "Skins");
+        Directory.CreateDirectory(text);
+        _gameRpcService = new GameRpcService(rpcPort, Entity, gameVersion);
+        _gameRpcService.Connect(text);
+    }
+
+    private void StartAuthenticationService()
+    {
+        _authLibProtocol = new AuthLibProtocol(_socketPort, JsonSerializer.Serialize(_modList), Entity.GameVersion, Entity.Account);
+        _authLibProtocol.Start();
+        Log.Information("[AuthSock] Control connection started on port {0}", _socketPort);
+    }
+
+    private async Task StartGameProcessAsync(CommandService commandService)
+    {
+        var process = commandService.StartGame();
+        if (process != null) {
+            await HandleSuccessfulLaunch(process);
+        } else {
+            HandleFailedLaunch();
+        }
+    }
+
+    private Task HandleSuccessfulLaunch(Process process)
+    {
+        GameProcess = process;
+        GameProcess.EnableRaisingEvents = true;
+        SyncProgressBarUtil.ProgressBar.ClearCurrent();
+        Log.Information("Game launched successfully. Game Version: {0}, Process ID: {1}, Role: {2}", Entity.GameVersion, process.Id, Entity.RoleName);
+        return Task.CompletedTask;
+    }
+
+    private void HandleFailedLaunch()
+    {
+        SyncProgressBarUtil.ProgressBar.ClearCurrent();
+        Log.Error("Game launch failed. Game Version: {0}, Role: {1}", Entity.GameVersion, Entity.RoleName);
+    }
+
+    private void Dispose(bool disposing)
+    {
+        if (_disposed) {
+            return;
+        }
+
+        if (disposing) {
+            try {
+                _authLibProtocol?.Dispose();
+                _gameRpcService?.CloseControlConnection();
+                if (GameProcess is { HasExited: false }) {
+                    GameProcess.Kill();
+                    GameProcess.Dispose();
+                }
+            } catch (Exception ex) {
+                Log.Warning(ex, "Error occurred during disposal");
+            }
+        }
+
+        _disposed = true;
+    }
+}

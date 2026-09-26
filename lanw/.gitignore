@@ -1,0 +1,25 @@
+# ---------- 构建产物 ----------
+[Bb]in/
+[Oo]bj/
+# lanw 的构建输出重定向目录（占用 558MB 磁盘的主因）
+.outs/
+*.binlog
+
+# ---------- IDE / 工具 ----------
+.vs/
+.idea/
+*.user
+*.suo
+
+# ---------- 根目录验证过程产物（脚本保留，产物不入库）----------
+/verify_*.png
+/verify_*.txt
+/probe_*.png
+/_probe_*.ps1
+/.buildlog.txt
+/launch_pid.txt
+
+# ---------- 测试 ----------
+TestResults/
+*.trx
+*.coverage

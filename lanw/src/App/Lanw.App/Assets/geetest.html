@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>随机登录 · 人机验证</title>
+<style>
+    html, body { margin: 0; height: 100%; background: transparent; color: #e6e6e6;
+                 font-family: "Segoe UI", "Microsoft YaHei", sans-serif; }
+    #wrap { box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 10px; height: 100%; padding: 10px; }
+    #gt-btn { display: flex; align-items: center; justify-content: center; min-width: 260px; min-height: 44px; }
+    #retry { display: none; padding: 6px 14px; border-radius: 4px; border: 1px solid #6b6b6b;
+             background: #3a3a3a; color: #e6e6e6; cursor: pointer; }
+    #status { font-size: 12px; line-height: 1.5; color: #a8a8a8; text-align: center; word-break: break-all; }
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div id="gt-btn"></div>
+    <button id="retry" type="button">重新加载验证码</button>
+    <div id="status">正在加载人机验证…</div>
+</div>
+<script>
+    (function () {
+        "use strict";
+
+        var CAPTCHA_ID = "fefebb64747ce99237ecdf1830f0ae63";
+        var PRODUCT = "bind";
+        var SCRIPT_URL = "https://static.geetest.com/v4/gt4.js";
+        var INIT_TIMEOUT_MS = 12000;
+
+        var statusEl = document.getElementById("status");
+        var retryEl = document.getElementById("retry");
+        var captcha = null;
+        var initialized = false;
+        var watchdog = null;
+        var lastError = "";
+
+        function post(payload) {
+            try {
+                if (window.chrome && window.chrome.webview) {
+                    window.chrome.webview.postMessage(payload);
+                }
+            } catch (e) { /* 忽略：宿主不在时无接收方 */ }
+        }
+
+        function setStatus(text) {
+            statusEl.textContent = text;
+            post({ type: "status", message: text });
+        }
+
+        function fail(text) {
+            if (lastError === text) { return; }
+            lastError = text;
+            retryEl.style.display = "inline-block";
+            setStatus(text);
+            post({ type: "error", message: text });
+        }
+
+        function clearWatchdog() {
+            if (watchdog) { clearTimeout(watchdog); watchdog = null; }
+        }
+
+        // 看门狗：极验初始化回调迟迟不返回（域名白名单限制 / 请求被 WebView2 拦截）时，
+        // 必须给出明确原因并显示「重新加载验证码」，而不是永远停在“正在初始化…”。
+        function armWatchdog(stage) {
+            clearWatchdog();
+            watchdog = setTimeout(function () {
+                if (initialized) { return; }
+                fail("极验" + stage + "超时（" + (navigator.onLine ? "网络在线但接口无响应" : "当前无网络连接") +
+                     "），可能是 captchaId 已停用（-50105 captcha_id paused）、域名限制或被 WebView2 拦截；可点击「重新加载验证码」重试。");
+            }, INIT_TIMEOUT_MS);
+        }
+
+        window.addEventListener("error", function (e) {
+            // 极验官方脚本跨域失败时，浏览器只暴露脱敏的 "Script error."，
+            // 故在此附上可操作结论：captchaId 被停用（-50105）是账号池验证码点不出来的最常见原因。
+            var raw = e && e.message ? e.message : String(e);
+            var hint = (raw === "Script error." || raw === "Script error")
+                ? "（极验官方脚本跨域失败，浏览器只暴露 Script error.；最常见原因是该 captchaId 已在极验后台被停用——接口返回 -50105 captcha_id paused——需在极验控制台恢复该验证码，或更换为可用的 captchaId）"
+                : "";
+            fail("验证页脚本错误：" + raw + hint);
+        });
+
+        window.addEventListener("offline", function () {
+            fail("当前网络不可用，无法加载人机验证。");
+        });
+
+        function start() {
+            if (typeof window.initGeetest4 !== "function") {
+                fail("无法加载极验验证码脚本（网络不可用或被拦截），请检查网络后重试。若极验控制台提示该验证码已停用／暂停（接口返回 -50105 captcha_id paused），须在极验后台恢复验证或更换 captchaId。");
+                return;
+            }
+
+            setStatus("正在初始化人机验证…");
+            armWatchdog("初始化");
+            try {
+                window.initGeetest4({
+                    captchaId: CAPTCHA_ID,
+                    product: PRODUCT,
+                    language: "zho",
+                    protocol: "https://"
+                }, function (obj) {
+                    initialized = true;
+                    clearWatchdog();
+                    captcha = obj;
+
+                    obj.onSuccess(function () {
+                        var validate = obj.getValidate() || {};
+                        post({
+                            type: "success",
+                            validate: {
+                                lot_number: validate.lot_number || "",
+                                pass_token: validate.pass_token || "",
+                                gen_time: validate.gen_time || "",
+                                captcha_output: validate.captcha_output || ""
+                            }
+                        });
+                    });
+
+                    obj.onError(function (err) {
+                        var message = err && (err.msg || err.code) ? (err.msg || err.code) : "未知原因";
+                        fail("人机验证失败：" + message + "（可点击「重新加载验证码」再试）");
+                    });
+
+                    obj.onClose(function () {
+                        post({ type: "close" });
+                        setStatus("验证窗口已关闭，可重新点击按钮再试");
+                    });
+
+                    try {
+                        obj.appendTo("#gt-btn");
+                        setStatus("请点击上方按钮完成人机验证");
+                    } catch (appendError) {
+                        try {
+                            obj.showCaptcha();
+                            setStatus("请在弹出的验证窗口中完成人机验证");
+                        } catch (showError) {
+                            fail("无法显示人机验证：" + (showError && showError.message ? showError.message : showError));
+                            return;
+                        }
+                    }
+
+                    post({ type: "ready" });
+                });
+            } catch (e) {
+                fail("初始化人机验证异常：" + (e && e.message ? e.message : e));
+            }
+        }
+
+        function loadScript() {
+            var existing = document.getElementById("gt4-script");
+            if (existing) { existing.parentNode.removeChild(existing); }
+            var script = document.createElement("script");
+            script.id = "gt4-script";
+            script.src = SCRIPT_URL;
+            script.onload = start;
+            script.onerror = function () {
+                fail("无法加载极验验证码脚本（网络不可用或被拦截），请检查网络后重试。若极验控制台提示该验证码已停用／暂停（接口返回 -50105 captcha_id paused），须在极验后台恢复验证或更换 captchaId。");
+            };
+            document.head.appendChild(script);
+            armWatchdog("脚本加载");
+        }
+
+        retryEl.addEventListener("click", function () {
+            retryEl.style.display = "none";
+            captcha = null;
+            initialized = false;
+            lastError = "";
+            setStatus("正在重新加载人机验证…");
+            loadScript();
+        });
+
+        post({ type: "loading" });
+        setStatus("正在加载人机验证…（" + (navigator.onLine ? "在线" : "离线") + "）");
+        loadScript();
+    })();
+</script>
+</body>
+</html>

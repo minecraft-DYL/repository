@@ -1,0 +1,26 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/App/">
+    <Project Path="src/App/Lanw.App/Lanw.App.csproj">
+      <Platform Project="x64" />
+    </Project>
+  </Folder>
+  <Folder Name="/src/Core/">
+    <Project Path="src/Core/Lanw.Core/Lanw.Core.csproj" />
+    <Project Path="src/Core/Lanw.Cipher/Lanw.Cipher.csproj" />
+    <Project Path="src/Core/Lanw.WPFLauncher/Lanw.WPFLauncher.csproj" />
+    <Project Path="src/Core/Lanw.Public/Lanw.Public.csproj" />
+    <Project Path="src/Core/Lanw.Game.Launcher/Lanw.Game.Launcher.csproj" />
+    <Project Path="src/Core/Lanw.Chat/Lanw.Chat.csproj" />
+    <Project Path="src/Core/Lanw.DevPlugin/Lanw.DevPlugin.csproj" />
+    <Project Path="src/Core/Lanw.Development/Lanw.Development.csproj" />
+    <Project Path="src/Core/Lanw.Heypixel/Lanw.Heypixel.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Lanw.Infrastructure/Lanw.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Lanw.Core.Tests/Lanw.Core.Tests.csproj" />
+    <Project Path="tests/Lanw.Development.Tests/Lanw.Development.Tests.csproj" />
+  </Folder>
+</Solution>

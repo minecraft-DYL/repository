@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Lanw.App (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Lanw.App (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

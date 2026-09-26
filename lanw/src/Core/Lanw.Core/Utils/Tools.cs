@@ -1,0 +1,298 @@
+using System.Diagnostics;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
+using Lanw.Core.Utils.CodeTools;
+using Serilog;
+
+namespace Lanw.Core.Utils;
+
+public static class Tools {
+    private static bool _isDebugMode;
+
+    [Conditional("DEBUG")]
+    private static void SetDebugMode()
+    {
+        _isDebugMode = true;
+    }
+
+    public static bool IsReleaseVersion()
+    {
+        return !IsDebugVersion();
+    }
+
+    private static bool IsDebugVersion()
+    {
+        SetDebugMode();
+        return _isDebugMode;
+    }
+
+    public static (T[], string) GetValueOrDefaultList<T>(string fileName)
+    {
+        var (list, path) = GetValueOrDefault<List<T?>>(fileName);
+
+        // 处理空数组
+        list ??= [];
+
+        // 过滤空值
+        var listNotNull = list.OfType<T>().ToArray();
+
+        return (listNotNull, path);
+    }
+
+    public static (T?, string) GetValueOrDefault<T>(string fileName)
+    {
+        var path = Path.Combine(PathUtil.ResourcePath, fileName);
+
+        if (!File.Exists(path)) {
+            return (default, path);
+        }
+
+        try {
+            // 异常格式处理
+            var json = File.ReadAllText(path, Encoding.UTF8);
+            return (JsonSerializer.Deserialize<T>(json), path);
+        } catch (Exception e) {
+            Log.Error("读取文件 {0} 异常: {1}", path, e.Message);
+        }
+
+        return (default, path);
+    }
+
+    // 获取异常信息 【简化版】
+    public static string GetMessage(Exception exception)
+    {
+        switch (exception) {
+            case AggregateException aggregateException: {
+                var message1 = aggregateException.InnerExceptions.Aggregate("", (current, innerException) => current + GetMessage(innerException) + ", ");
+                return message1.TrimEnd(',', ' ');
+            }
+            case ErrorCodeException errorCodeException: {
+                var message = errorCodeException.Entity.Message;
+                if (message != null) {
+                    return message;
+                }
+
+                break;
+            }
+        }
+
+        return exception.Message;
+    }
+
+    /// <summary>同步计算文件的SHA256哈希值（小写十六进制）。</summary>
+    public static string ComputeSha256(string filePath)
+    {
+        if (string.IsNullOrEmpty(filePath)) {
+            throw new ArgumentException("文件路径不能为空", nameof(filePath));
+        }
+
+        if (!File.Exists(filePath)) {
+            throw new FileNotFoundException($"文件不存在: {filePath}");
+        }
+
+        using var sha256 = SHA256.Create();
+        using var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+        var hashBytes = sha256.ComputeHash(fileStream);
+        return Convert.ToHexStringLower(hashBytes);
+    }
+
+    /// <summary>检查指定端口是否正在被使用。</summary>
+    private static bool IsPortInUse(int port)
+    {
+        var ipGlobalProperties = IPGlobalProperties.GetIPGlobalProperties();
+        var tcpEndPoints = ipGlobalProperties.GetActiveTcpListeners();
+        return tcpEndPoints.Any(endPoint => endPoint.Port == port);
+    }
+
+    /// <summary>获取未被占用的端口。</summary>
+    public static int GetUnusedPort(int startPort = 25565)
+    {
+        for (var port = startPort; port <= startPort + 1024; port++) {
+            if (!IsPortInUse(port)) {
+                return port;
+            }
+        }
+
+        return -1;
+    }
+
+    // 获取IP地址
+    public static string GetLocalIpAddress(bool localhost = true)
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList) {
+            if (ip.AddressFamily == AddressFamily.InterNetwork) {
+                return ip.ToString();
+            }
+        }
+
+        return localhost ? "localhost" : "127.0.0.1";
+    }
+
+    /// <summary>检测当前操作系统并返回对应的模式：win | linux | mac。</summary>
+    public static string DetectOperatingSystemMode()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+            return "win";
+        }
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+            return "linux";
+        }
+
+        return RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? "mac" : "win";
+    }
+
+    /// <summary>检测当前架构并返回对应的模式：arm64 | x64。</summary>
+    public static string DetectArchitectureMode()
+    {
+        return RuntimeInformation.ProcessArchitecture switch {
+            Architecture.Arm64 or Architecture.Arm or Architecture.Armv6 => "arm64",
+            _ => "x64"
+        };
+    }
+
+    /// <summary>重启当前进程。</summary>
+    public static Process? Restart(bool isExit = true, List<string>? arguments = null)
+    {
+        var arg = GetProcessArguments(arguments);
+        var startInfo = new ProcessStartInfo {
+            FileName = Environment.ProcessPath,
+            Arguments = arg,
+            UseShellExecute = true
+        };
+        Log.Information("正在重启: {0} {1}", Environment.ProcessPath, arg);
+        var process = Process.Start(startInfo);
+        if (isExit) {
+            Environment.Exit(0);
+        }
+
+        return process;
+    }
+
+    /// <summary>前/尾 不包含空格——当前进程的附加参数。</summary>
+    private static string GetProcessArguments(List<string>? arguments = null)
+    {
+        var arg = Environment.GetCommandLineArgs().Aggregate("", (current, lineArg) => current + lineArg + " ");
+        if (arguments != null) {
+            arg = arguments.Aggregate(arg, (current, argument) => current + argument + " ");
+        }
+
+        // 移除最后一个空格
+        return arg.Length >= 2 ? arg[..^1] : arg;
+    }
+
+    /// <summary>获取中间文本。</summary>
+    public static string GetBetweenStrings(string source, string startString, string endString)
+    {
+        var startIndex = source.IndexOf(startString, StringComparison.Ordinal);
+        if (startIndex == -1) {
+            return string.Empty;
+        }
+
+        startIndex += startString.Length;
+
+        var endIndex = source.IndexOf(endString, startIndex, StringComparison.Ordinal);
+        return endIndex == -1 ? string.Empty : source.Substring(startIndex, endIndex - startIndex);
+    }
+
+    // 保存Shell脚本
+    public static async Task SaveShellScript(string filePath, string content)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+            await File.WriteAllTextAsync(filePath, content, Encoding.GetEncoding(936)); // GBK 编码
+        } else {
+            await File.WriteAllTextAsync(filePath, content);
+            // 设置权限
+            Log.Information("设置权限: {0}", filePath);
+            FileUtil.SetUnixFilePermissions(filePath);
+        }
+    }
+
+    public static void CreateLinkDirectory(string linkPath, string targetPath)
+    {
+        Log.Warning("[符号链接]: {0} -> {1}", targetPath, linkPath);
+
+        // 安全判断：这个路径是不是 符号链接
+        if (IsSymbolicLink(linkPath)) {
+            Directory.Delete(linkPath, false);
+        } else if (File.Exists(linkPath)) {
+            File.Delete(linkPath);
+        } else if (Directory.Exists(linkPath)) {
+            Directory.Delete(linkPath, true);
+        }
+
+        try {
+            // 创建新的软链接
+            Directory.CreateSymbolicLink(linkPath, targetPath);
+            return;
+        } catch (Exception e) {
+            Log.Error("[符号链接]链接失败: {0}\n{1}", linkPath, e.Message);
+        }
+
+        try {
+            Directory.CreateDirectory(linkPath);
+            Directory.CreateDirectory(targetPath);
+            FileUtil.CopyDirectory(targetPath, linkPath, true);
+        } catch (Exception copyEx) {
+            Log.Error("[符号链接]:复制目录失败: {0}\n{1}", linkPath, copyEx.Message);
+            throw;
+        }
+    }
+
+    // 判断是否为符号链接
+    private static bool IsSymbolicLink(string path)
+    {
+        if (!Directory.Exists(path)) {
+            return false;
+        }
+
+        var dirInfo = new DirectoryInfo(path);
+        return dirInfo.Attributes.HasFlag(FileAttributes.ReparsePoint);
+    }
+
+    public static string GetRandomCpuType()
+    {
+        string[] cpuMode = ["", "H", "F", "K", "KF"];
+
+        string[] list = [
+            "Intel(R) Core(TM) i3-10100",
+            "Intel(R) Core(TM) i3-12100",
+            "Intel(R) Core(TM) i3-13100",
+
+            "Intel(R) Core(TM) i5-10400",
+            "Intel(R) Core(TM) i5-11400",
+            "Intel(R) Core(TM) i5-12400",
+            "Intel(R) Core(TM) i5-13400",
+
+            "Intel(R) Core(TM) i7-10700",
+            "Intel(R) Core(TM) i7-11700",
+            "Intel(R) Core(TM) i7-12700",
+
+            "Intel(R) Core(TM) i9-9900",
+            "Intel(R) Core(TM) i9-10900",
+            "Intel(R) Core(TM) i9-12900",
+            "Intel(R) Core(TM) i9-13900",
+            "Intel(R) Core(TM) i9-14900",
+        ];
+        return list[Random.Shared.Next(list.Length)] + cpuMode[Random.Shared.Next(cpuMode.Length)];
+    }
+
+    public static string GetRandomRamSize()
+    {
+        int[] list = [
+            4, // 2+2
+            6, // 4+2
+            8, // 4+4
+            16, // 8+8
+        ];
+        const long ram = 1024L * 1024L * 1024L;
+        var index = Random.Shared.Next(list.Length);
+        return (list[index] * ram).ToString();
+    }
+}

@@ -1,0 +1,256 @@
+using System.Text.Json;
+using Lanw.Core.Utils;
+using Lanw.Core.Utils.Progress;
+using Lanw.Game.Launcher.Entities.WPFLauncher.NetGame.GameLaunch;
+using Lanw.Game.Launcher.Entities.WPFLauncher.NetGame.GameLaunch.GameMods;
+using Lanw.Game.Launcher.Entities.WPFLauncher.NetGame.GameLaunch.Texture;
+using Lanw.Game.Launcher.Protocol;
+using Lanw.Game.Launcher.Utils;
+using Serilog;
+
+namespace Lanw.Game.Launcher.Services.Java;
+
+public static class InstallerService {
+    public static async Task PrepareMinecraftClient(EnumGameVersion gameVersion)
+    {
+        var versionName = Enum.GetName(gameVersion);
+
+        var md5Path = Path.Combine(PathUtil.GameBasePath, "GAME_BASE.MD5");
+        var zipPath = Path.Combine(PathUtil.CachePath, "GameBase.zip");
+
+        var minecraftClientLibs = await NPFLauncher.GetMinecraftClientLibsAsync();
+        await ProcessPackage(minecraftClientLibs.Url, zipPath, PathUtil.GameBasePath, md5Path, minecraftClientLibs.Md5, "base package");
+
+        var versionMd5File = Path.Combine(PathUtil.GameBasePath, versionName + ".MD5");
+        var versionZip = Path.Combine(PathUtil.CachePath, versionName + ".zip");
+
+        var versionResult = await NPFLauncher.GetMinecraftClientLibsAsync(gameVersion);
+        await ProcessPackage(versionResult.Url, versionZip, PathUtil.GameBasePath, versionMd5File, versionResult.Md5, versionName + " package");
+
+        var libMd5File = Path.Combine(PathUtil.GameBasePath, versionName + "_Lib.MD5");
+        var libZip = Path.Combine(PathUtil.CachePath, versionName + "_Lib.7z");
+
+        await ProcessPackage(versionResult.CoreLibUrl, libZip, PathUtil.CachePath, libMd5File, versionResult.CoreLibMd5, versionName + " libraries");
+        InstallCoreLibs(Path.Combine(PathUtil.CachePath, versionName + "_libs"), gameVersion);
+    }
+
+    private static void InstallCoreLibs(string libPath, EnumGameVersion gameVersion)
+    {
+        var gameVersionFromEnum = GameVersionUtil.GetGameVersionFromEnum(gameVersion);
+        var fileList = Directory.GetFiles(libPath, "*", SearchOption.AllDirectories);
+        var javaList = Directory.GetFiles(Path.Combine(PathUtil.GameBaseMcPath, "libraries"), "*", SearchOption.AllDirectories);
+        foreach (var filePath in fileList) {
+            var fileName = Path.GetFileName(filePath);
+            if (!fileName.EndsWith(".jar")) {
+                var path = Path.Combine(PathUtil.GameBaseMcPath, "versions", gameVersionFromEnum, fileName);
+                Log.Information("Installed {0} to {1}", filePath, path);
+                File.Copy(filePath, path, true);
+                continue;
+            }
+
+            var flag = true;
+            foreach (var javaPath in javaList) {
+                var javaFileName = Path.GetFileName(javaPath);
+                if (fileName.Equals(javaFileName)) {
+                    flag = false;
+                    Log.Information("Installed {0} to {1}", filePath, javaPath);
+                    File.Copy(filePath, javaPath, true);
+                    break;
+                }
+            }
+
+            if (flag) {
+                Log.Warning("Failed to install {0}", fileName);
+            }
+        }
+    }
+
+    private static async Task ProcessPackage(string url, string zipPath, string extractTo, string md5Path, string md5, string label)
+    {
+        // 已经下载过，且md5匹配，直接返回
+        if (File.Exists(md5Path) && await File.ReadAllTextAsync(md5Path) == md5) {
+            return;
+        }
+
+        var uiProgress = SyncCallback.Create();
+        await DownloadUtil.DownloadAsync(url, zipPath, label, uiProgress);
+        await CompressionUtil.ExtractAsync(zipPath, extractTo, label, uiProgress);
+        await File.WriteAllTextAsync(md5Path, md5);
+        if (Tools.IsReleaseVersion()) {
+            FileUtil.DeleteFileSafe(zipPath);
+        }
+    }
+
+    public static async Task<EntityModsList?> InstallGameMods(EnumGameVersion gameVersion, string gameId, bool isRental = false)
+    {
+        var entity = await NPFLauncher.GetGameCoreModListAsync(gameVersion, isRental);
+        if (entity?.IidList == null) {
+            return null;
+        }
+
+        var entities = await NPFLauncher.GetGameCoreModDetailsListAsync(entity.IidList);
+        var modList = new EntityModsList();
+
+        var uiProgress = SyncCallback.Create();
+
+        var corePath = Path.Combine(PathUtil.GameModsPath, gameId);
+        var idx = 0;
+
+        foreach (var entityComponentDownloadInfoResponse in entities) {
+            foreach (var subEntity in entityComponentDownloadInfoResponse.SubEntities) {
+                modList.Mods.Add(new EntityModsInfo {
+                    ModPath = $"{entityComponentDownloadInfoResponse.ItemId}@{entityComponentDownloadInfoResponse.MTypeId}@0.jar",
+                    Id = $"{entityComponentDownloadInfoResponse.ItemId}@{entityComponentDownloadInfoResponse.MTypeId}@0.jar",
+                    Iid = entityComponentDownloadInfoResponse.ItemId,
+                    Md5 = subEntity.JarMd5.ToUpper()
+                });
+                idx++;
+                var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(subEntity.ResName);
+                var jar = Path.Combine(corePath, $"{fileNameWithoutExtension}@{entityComponentDownloadInfoResponse.MTypeId}@{entityComponentDownloadInfoResponse.EntityId}.jar");
+                if (File.Exists(jar) && FileUtil.EqualsMd5FromFile(jar, subEntity.JarMd5)) {
+                    continue;
+                }
+
+                var archive = Path.Combine(corePath, subEntity.ResName);
+                await DownloadUtil.DownloadAsync(subEntity.ResUrl, archive, dp => {
+                    uiProgress.Report(new SyncProgressBarUtil.ProgressReport {
+                        Percent = dp,
+                        Message = $"Downloading core mod {idx}/{entities.Length}"
+                    });
+                });
+                var extractDir = Path.Combine(corePath, fileNameWithoutExtension);
+                FileUtil.DeleteDirectorySafe(extractDir);
+                await CompressionUtil.ExtractAsync(archive, extractDir, p => {
+                    uiProgress.Report(new SyncProgressBarUtil.ProgressReport {
+                        Percent = p,
+                        Message = $"Extracting core mod {idx}/{entities.Length}"
+                    });
+                });
+                if (Tools.IsReleaseVersion()) {
+                    FileUtil.DeleteFileSafe(archive);
+                }
+
+                var array = FileUtil.EnumerateFiles(extractDir, "jar");
+                foreach (var t in array) {
+                    FileUtil.CopyFileSafe(t, jar);
+                }
+
+                FileUtil.DeleteDirectorySafe(extractDir);
+            }
+        }
+
+        var compDir = Path.Combine(PathUtil.CachePath, "Game", gameId);
+        Directory.CreateDirectory(compDir);
+        var compArchive = compDir + ".7z";
+
+        try {
+            var netGameComponentDownloadList = await NPFLauncher.GetNetGameComponentDownloadListAsync(gameId);
+            foreach (var subEntity in netGameComponentDownloadList.SubEntities) {
+                var extractDir = Path.Combine(compDir, gameId + ".MD5");
+                var flag = File.Exists(extractDir) && await File.ReadAllTextAsync(extractDir) == subEntity.ResMd5;
+                var archive = Path.Combine(compDir, gameId + ".json");
+
+                if (flag && File.Exists(archive)) {
+                    var json = await File.ReadAllTextAsync(archive);
+                    var entityModsInfos = JsonSerializer.Deserialize<EntityModsList>(json)?.Mods;
+                    if (entityModsInfos != null) {
+                        foreach (var mod in entityModsInfos) {
+                            modList.Mods.Add(mod);
+                        }
+                    }
+
+                    continue;
+                }
+
+                await DownloadUtil.DownloadAsync(subEntity.ResUrl, compArchive, p => {
+                    uiProgress.Report(new SyncProgressBarUtil.ProgressReport {
+                        Percent = p,
+                        Message = "Downloading Game Assets"
+                    });
+                });
+                FileUtil.DeleteDirectorySafe(compDir);
+                await CompressionUtil.ExtractAsync(compArchive, compDir, p => {
+                    uiProgress.Report(new SyncProgressBarUtil.ProgressReport {
+                        Percent = p,
+                        Message = "Extracting game assets"
+                    });
+                });
+                if (Tools.IsReleaseVersion()) {
+                    FileUtil.DeleteFileSafe(compArchive);
+                }
+
+                var array2 = FileUtil.EnumerateFiles(Path.Combine(compDir, ".minecraft", "mods"), "jar");
+                var serverModsList = new EntityModsList();
+                foreach (var path in array2) {
+                    var jar = Path.GetFileName(path);
+                    serverModsList.Mods.Add(new EntityModsInfo {
+                        Name = "",
+                        Version = "",
+                        ModPath = jar,
+                        Id = jar,
+                        Iid = jar.Split('@')[0],
+                        Md5 = FileUtil.ComputeMd5FromFile(path)
+                    });
+                }
+
+                modList.Mods.AddRange(serverModsList.Mods);
+                await File.WriteAllTextAsync(extractDir, subEntity.ResMd5);
+                await File.WriteAllTextAsync(archive, JsonSerializer.Serialize(serverModsList));
+            }
+        } catch (Exception) {
+            Log.Warning("Download game Component failed");
+        }
+
+        SyncProgressBarUtil.ProgressBar.ClearCurrent();
+        return modList;
+    }
+
+    private static void InstallCustomMods(string mods, string gameId)
+    {
+        FileUtil.CopyDirectory(Path.Combine(PathUtil.CustomModsPath, gameId), mods, true);
+    }
+
+    public static string PrepareGameRuntime(string gameId, string roleName, EnumGType gameType)
+    {
+        var path = Path.Combine(PathUtil.GamePath, "Runtime", gameId + "-" + roleName);
+        var minecraft = Path.Combine(path, ".minecraft");
+        var mods = Path.Combine(minecraft, "mods");
+
+        InstallCustomMods(mods, gameId); // 会创建mods目录
+
+        if (gameType == EnumGType.NetGame) {
+            FileUtil.CleanDirectorySafe(mods);
+            var sourceDir = Path.Combine(PathUtil.GamePath, gameId, ".minecraft");
+            FileUtil.CopyDirectory(sourceDir, minecraft, true);
+            // 因为 heypixel 的 protocol mod 会使用 win-jna, 所以无法使用
+            if ("4661334467366178884".Equals(gameId)) {
+                foreach (var filePath in FileUtil.GetFilesByDirectoryByFileSize(mods, 50_000_000, "*.jar")) {
+                    FileUtil.DeleteFileSafe(filePath);
+                }
+            }
+        }
+
+        return path;
+    }
+
+    public static void InstallCoreMods(string gameId, string targetModsPath)
+    {
+        var text = Path.Combine(PathUtil.GameModsPath, gameId);
+        if (!Directory.Exists(text)) {
+            return;
+        }
+
+        Directory.CreateDirectory(targetModsPath);
+        var array = FileUtil.EnumerateFiles(text);
+        foreach (var text2 in array) {
+            var text3 = Path.Combine(targetModsPath, Path.GetRelativePath(text, text2));
+            var dir = Path.GetDirectoryName(text3);
+            if (dir == null) {
+                continue;
+            }
+
+            Directory.CreateDirectory(dir);
+            FileUtil.CopyFileSafe(text2, text3);
+        }
+    }
+}

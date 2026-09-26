@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Core\Lanw.Core\Lanw.Core.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.Cipher\Lanw.Cipher.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.WPFLauncher\Lanw.WPFLauncher.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.Public\Lanw.Public.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.Game.Launcher\Lanw.Game.Launcher.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.Chat\Lanw.Chat.csproj" />
+    <ProjectReference Include="..\..\src\Core\Lanw.Heypixel\Lanw.Heypixel.csproj" />
+  </ItemGroup>
+
+</Project>

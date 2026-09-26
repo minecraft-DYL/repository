@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Lanw.Public</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="4.3.1" />
+    <!-- Utils.ViewLogger（t17）：CustomConsoleTheme 继承 ConsoleTheme，来自 Serilog.Sinks.Console -->
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lanw.Core\Lanw.Core.csproj" />
+    <ProjectReference Include="..\Lanw.WPFLauncher\Lanw.WPFLauncher.csproj" />
+    <!-- 插件商城/插件消息需要 PluginManager（Lanw.Development）与 DownloadUtil（Lanw.Game.Launcher）。 -->
+    <ProjectReference Include="..\Lanw.Development\Lanw.Development.csproj" />
+    <ProjectReference Include="..\Lanw.Game.Launcher\Lanw.Game.Launcher.csproj" />
+    <!-- 代理模式（t17 InterceptorManager）：参考源 Nirvana.Public 引用 Nirvana.Heypixel，此处对应 Lanw.Heypixel。 -->
+    <ProjectReference Include="..\Lanw.Heypixel\Lanw.Heypixel.csproj" />
+    <!-- InterceptorManager 的 Yggdrasil 认证走 Nirvana.Cipher（Lanw.Cipher）。 -->
+    <ProjectReference Include="..\Lanw.Cipher\Lanw.Cipher.csproj" />
+  </ItemGroup>
+
+</Project>
