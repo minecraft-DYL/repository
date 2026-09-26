@@ -1,0 +1,26 @@
+# =====================================================================
+# 仓库根 .gitignore
+# 只放"结构级 / 跨项目"规则；各项目自己的规则在各自目录下的 .gitignore
+# =====================================================================
+
+# ---------- 不入库的外部参考源（体积大，非自研代码）----------
+# Fantnel 上游浅克隆：lanw 的长期参考源，按约定不入库
+_fantnel_ref/
+# OreUI 上游仓库的本地克隆（来源见 Oreui-Winui3/_source.REVISION）
+Oreui-Winui3/_source/
+# bbs-mod 上游仓库的本地克隆（来源见 ai-mc-mod/_ref/README.md）
+ai-mc-mod/_ref/bbs-mod/
+
+# ---------- 工具 / 工作区临时目录 ----------
+.dsh-vision-router/
+.agent-teams/
+.outcap/
+.capfull/
+
+# ---------- 日志 ----------
+*.log
+
+# ---------- 系统垃圾 ----------
+Thumbs.db
+desktop.ini
+.DS_Store
