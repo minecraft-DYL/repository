@@ -2,6 +2,8 @@
 
 这些都是 AI 写的，我只测试！
 
+AI曰：
+
 本仓库是各类实验项目的**单仓多项目（monorepo）**归档。每个顶层目录是一个独立项目，
 各自保留自己的构建方式与 `.gitignore`；仓库根只负责结构级规则（见 [`.gitignore`](.gitignore)）。
 
@@ -43,3 +45,9 @@
 ## 许可
 
 见 [`LICENSE`](LICENSE)。
+
+人曰：
+
+##劲爆尾杀
+
+<img width="1920" height="1080" alt="386d9fc3c64f2a97ce4e110978d88e04" src="https://github.com/user-attachments/assets/9d6205b4-755c-493b-8574-dfea2ef05dbc" />
