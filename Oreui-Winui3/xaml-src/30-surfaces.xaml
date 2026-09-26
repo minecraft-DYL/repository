@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OreUI.WinUI">
+
+    <!-- ============================== OreTag ============================== -->
+    <Style TargetType="local:OreTag">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeTag}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreTag">
+                    <Border
+                        x:Name="OreTagBorder"
+                        Margin="0,0,5,0"
+                        Padding="2,0"
+                        Background="#1E1E1F">
+                        <ContentPresenter
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreBadge ============================= -->
+    <Style TargetType="local:OreBadge">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreBadge">
+                    <Border
+                        x:Name="OreBadgeBorder"
+                        Width="6"
+                        Height="6"
+                        Margin="0,0,6,0"
+                        Background="#FFFFFF" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================ 分割线系列 ============================ -->
+    <Style TargetType="local:OreDivider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreDivider">
+                    <Border
+                        Height="2"
+                        Margin="0,6"
+                        Background="#58585A" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreDividerBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreDividerBox">
+                    <Grid Height="4" Margin="0,6">
+                        <Border
+                            Height="2"
+                            VerticalAlignment="Top"
+                            Background="#333334" />
+                        <Border
+                            Height="2"
+                            VerticalAlignment="Bottom"
+                            Background="#5A5B5C" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreLine">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreLine">
+                    <Border
+                        Height="2"
+                        Margin="0,1"
+                        Background="#48494A" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreVerticalDivider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreVerticalDivider">
+                    <Border
+                        Width="2"
+                        Margin="6,0"
+                        Background="#FFFFFF" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreBanner ============================ -->
+    <Style TargetType="local:OreBanner">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="Margin" Value="0,10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreBanner">
+                    <Grid>
+                        <Border
+                            x:Name="OreBannerBorder"
+                            MinHeight="30"
+                            Margin="20,0"
+                            Padding="10"
+                            Background="#1E1E1F">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- =========================== OreShowBlock =========================== -->
+    <!-- 悬停时两道斜白条扫过（thickFlash / thinFlash），由 code-behind 驱动 Storyboard -->
+    <Style TargetType="local:OreShowBlock">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreShowBlock">
+                    <Grid Margin="6">
+                        <Border
+                            x:Name="OreShowBlockBorder"
+                            Background="Transparent"
+                            BorderBrush="#58585A"
+                            BorderThickness="2">
+                            <Grid>
+                                <StackPanel
+                                    Margin="17,5"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <FontIcon
+                                            x:Name="OreTitleIcon"
+                                            Margin="0,0,5,0"
+                                            FontSize="20"
+                                            Visibility="Collapsed" />
+                                        <TextBlock
+                                            x:Name="OreTitleText"
+                                            FontSize="17"
+                                            Foreground="#FFFFFF" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        x:Name="OreDescriptionText"
+                                        Margin="0,2,0,0"
+                                        FontSize="14"
+                                        Foreground="#D0D1D4"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap"
+                                        Visibility="Collapsed" />
+                                </StackPanel>
+                                <!--
+                                    扫光层。三个必须对齐 Web 端的点（见 OreShowBlock.UpdateFlashGeometry）：
+                                    1) CSS skewX 绕元素中心，XAML SkewTransform 默认绕 (0,0) => 要设 CenterY=高度/2
+                                    2) CSS 的 left 从 -150% 扫到 150%（相对自身宽度），不是固定像素
+                                    3) CSS 有 overflow:hidden => 代码里给这一层加 Clip
+                                -->
+                                <Grid x:Name="OreFlashLayer" IsHitTestVisible="False">
+                                    <Rectangle
+                                        x:Name="OreFlashThick"
+                                        Width="15"
+                                        HorizontalAlignment="Left"
+                                        Fill="#FFFFFF99">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <SkewTransform x:Name="OreThickSkew" AngleX="-45" />
+                                                <TranslateTransform x:Name="OreThickTransform" X="-400" />
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                    <Rectangle
+                                        x:Name="OreFlashThin"
+                                        Width="6"
+                                        HorizontalAlignment="Left"
+                                        Fill="#FFFFFF80">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <SkewTransform x:Name="OreThinSkew" AngleX="-45" />
+                                                <TranslateTransform x:Name="OreThinTransform" X="-400" />
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========================== 页面骨架元素 ========================== -->
+    <Style TargetType="local:OrePageTitle">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontTitleFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizePageTitle}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OrePageTitle">
+                    <Border
+                        MinHeight="70"
+                        BorderBrush="#333334"
+                        BorderThickness="0,0,0,2">
+                        <ContentPresenter
+                            Margin="20,10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlockFrame">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Margin" Value="20,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlockFrame">
+                    <Border
+                        BorderBrush="#333334"
+                        BorderThickness="2,2,2,2">
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlock">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlock">
+                    <Border
+                        MinHeight="66"
+                        Padding="0,8"
+                        BorderBrush="#333334"
+                        BorderThickness="2,2,2,2">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainDisplay">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainDisplay">
+                    <Border
+                        MinHeight="60"
+                        Padding="16,8"
+                        BorderBrush="#333334"
+                        BorderThickness="0,2,0,2">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlockSpacing">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlockSpacing">
+                    <Border Height="20" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

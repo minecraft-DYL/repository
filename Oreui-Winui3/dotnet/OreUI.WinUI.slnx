@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/OreUI.WinUI/OreUI.WinUI.csproj" />
+  <Project Path="samples/OreUI.Gallery/OreUI.Gallery.csproj" />
+</Solution>

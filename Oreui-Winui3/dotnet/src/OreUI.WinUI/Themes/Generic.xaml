@@ -1,0 +1,1685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ⚠️ 本文件由 tools/gen_theme.py 自动生成，请勿手工修改。
+    源片段位于仓库根的 xaml-src/ 目录，修改后重新运行：
+        python tools/gen_tokens.py && python tools/gen_theme.py
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OreUI.WinUI">
+
+    <!-- ==================== 00-tokens.xaml ==================== -->
+    <!-- ==================== 原子色板 (palette) ==================== -->
+
+    <Color x:Key="OreUIGreen10Color">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUIGreen10Brush" Color="#A0E081" />
+    <Color x:Key="OreUIGreen20Color">#86D562</Color>
+    <SolidColorBrush x:Key="OreUIGreen20Brush" Color="#86D562" />
+    <Color x:Key="OreUIGreen30Color">#6CC349</Color>
+    <SolidColorBrush x:Key="OreUIGreen30Brush" Color="#6CC349" />
+    <Color x:Key="OreUIGreen40Color">#52A535</Color>
+    <SolidColorBrush x:Key="OreUIGreen40Brush" Color="#52A535" />
+    <Color x:Key="OreUIGreen50Color">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUIGreen50Brush" Color="#3C8527" />
+    <Color x:Key="OreUIGreen60Color">#2A641C</Color>
+    <SolidColorBrush x:Key="OreUIGreen60Brush" Color="#2A641C" />
+    <Color x:Key="OreUIGreen70Color">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIGreen70Brush" Color="#1D4D13" />
+    <Color x:Key="OreUIGreen80Color">#153A0E</Color>
+    <SolidColorBrush x:Key="OreUIGreen80Brush" Color="#153A0E" />
+    <Color x:Key="OreUIGreen90Color">#112F0B</Color>
+    <SolidColorBrush x:Key="OreUIGreen90Brush" Color="#112F0B" />
+    <Color x:Key="OreUIGreen100Color">#0F2B0A</Color>
+    <SolidColorBrush x:Key="OreUIGreen100Brush" Color="#0F2B0A" />
+
+    <Color x:Key="OreUIRed10Color">#F46D6D</Color>
+    <SolidColorBrush x:Key="OreUIRed10Brush" Color="#F46D6D" />
+    <Color x:Key="OreUIRed20Color">#EA5E5E</Color>
+    <SolidColorBrush x:Key="OreUIRed20Brush" Color="#EA5E5E" />
+    <Color x:Key="OreUIRed30Color">#DF5050</Color>
+    <SolidColorBrush x:Key="OreUIRed30Brush" Color="#DF5050" />
+    <Color x:Key="OreUIRed40Color">#D54242</Color>
+    <SolidColorBrush x:Key="OreUIRed40Brush" Color="#D54242" />
+    <Color x:Key="OreUIRed50Color">#CA3636</Color>
+    <SolidColorBrush x:Key="OreUIRed50Brush" Color="#CA3636" />
+    <Color x:Key="OreUIRed60Color">#C02D2D</Color>
+    <SolidColorBrush x:Key="OreUIRed60Brush" Color="#C02D2D" />
+    <Color x:Key="OreUIRed70Color">#B62525</Color>
+    <SolidColorBrush x:Key="OreUIRed70Brush" Color="#B62525" />
+    <Color x:Key="OreUIRed80Color">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIRed80Brush" Color="#AD1D1D" />
+    <Color x:Key="OreUIRed90Color">#A31616</Color>
+    <SolidColorBrush x:Key="OreUIRed90Brush" Color="#A31616" />
+    <Color x:Key="OreUIRed100Color">#990F0F</Color>
+    <SolidColorBrush x:Key="OreUIRed100Brush" Color="#990F0F" />
+
+    <Color x:Key="OreUIBlue10Color">#8CB3FF</Color>
+    <SolidColorBrush x:Key="OreUIBlue10Brush" Color="#8CB3FF" />
+    <Color x:Key="OreUIBlue20Color">#2E6BE5</Color>
+    <SolidColorBrush x:Key="OreUIBlue20Brush" Color="#2E6BE5" />
+    <Color x:Key="OreUIBlue30Color">#1452CC</Color>
+    <SolidColorBrush x:Key="OreUIBlue30Brush" Color="#1452CC" />
+
+    <Color x:Key="OreUIYellow10Color">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUIYellow10Brush" Color="#FFE866" />
+    <Color x:Key="OreUIYellow20Color">#E5C317</Color>
+    <SolidColorBrush x:Key="OreUIYellow20Brush" Color="#E5C317" />
+    <Color x:Key="OreUIYellow30Color">#8A7500</Color>
+    <SolidColorBrush x:Key="OreUIYellow30Brush" Color="#8A7500" />
+
+    <Color x:Key="OreUIOrange10Color">#FFB366</Color>
+    <SolidColorBrush x:Key="OreUIOrange10Brush" Color="#FFB366" />
+    <Color x:Key="OreUIOrange20Color">#D3791F</Color>
+    <SolidColorBrush x:Key="OreUIOrange20Brush" Color="#D3791F" />
+    <Color x:Key="OreUIOrange30Color">#A65B11</Color>
+    <SolidColorBrush x:Key="OreUIOrange30Brush" Color="#A65B11" />
+
+    <Color x:Key="OreUIDeepBlue10Color">#AC90F3</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue10Brush" Color="#AC90F3" />
+    <Color x:Key="OreUIDeepBlue20Color">#9471E0</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue20Brush" Color="#9471E0" />
+    <Color x:Key="OreUIDeepBlue40Color">#7855E8</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue40Brush" Color="#7855E8" />
+    <Color x:Key="OreUIDeepBlue50Color">#7345E5</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue50Brush" Color="#7345E5" />
+    <Color x:Key="OreUIDeepBlue60Color">#5D2CC6</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue60Brush" Color="#5D2CC6" />
+    <Color x:Key="OreUIDeepBlue70Color">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue70Brush" Color="#4A1CAC" />
+    <Color x:Key="OreUIDeepBlue100Color">#050029</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue100Brush" Color="#050029" />
+
+    <Color x:Key="OreUIGrayWhiteColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIGrayWhiteBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIGray10Color">#F4F6F9</Color>
+    <SolidColorBrush x:Key="OreUIGray10Brush" Color="#F4F6F9" />
+    <Color x:Key="OreUIGray20Color">#E6E8EB</Color>
+    <SolidColorBrush x:Key="OreUIGray20Brush" Color="#E6E8EB" />
+    <Color x:Key="OreUIGray30Color">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUIGray30Brush" Color="#D0D1D4" />
+    <Color x:Key="OreUIGray40Color">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUIGray40Brush" Color="#B1B2B5" />
+    <Color x:Key="OreUIGray50Color">#8D8D90</Color>
+    <SolidColorBrush x:Key="OreUIGray50Brush" Color="#8D8D90" />
+    <Color x:Key="OreUIGray60Color">#58585A</Color>
+    <SolidColorBrush x:Key="OreUIGray60Brush" Color="#58585A" />
+    <Color x:Key="OreUIGray70Color">#48494A</Color>
+    <SolidColorBrush x:Key="OreUIGray70Brush" Color="#48494A" />
+    <Color x:Key="OreUIGray80Color">#313233</Color>
+    <SolidColorBrush x:Key="OreUIGray80Brush" Color="#313233" />
+    <Color x:Key="OreUIGray90Color">#242425</Color>
+    <SolidColorBrush x:Key="OreUIGray90Brush" Color="#242425" />
+    <Color x:Key="OreUIGray100Color">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIGray100Brush" Color="#1E1E1F" />
+    <Color x:Key="OreUIGrayBlackColor">#000000</Color>
+    <SolidColorBrush x:Key="OreUIGrayBlackBrush" Color="#000000" />
+
+    <Color x:Key="OreUIBlackOpacity10Color">#1A000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity10Brush" Color="#1A000000" />
+    <Color x:Key="OreUIBlackOpacity20Color">#33000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity20Brush" Color="#33000000" />
+    <Color x:Key="OreUIBlackOpacity30Color">#4D000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity30Brush" Color="#4D000000" />
+    <Color x:Key="OreUIBlackOpacity40Color">#66000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity40Brush" Color="#66000000" />
+    <Color x:Key="OreUIBlackOpacity50Color">#80000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity50Brush" Color="#80000000" />
+    <Color x:Key="OreUIBlackOpacity60Color">#99000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity60Brush" Color="#99000000" />
+    <Color x:Key="OreUIBlackOpacity70Color">#B3000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity70Brush" Color="#B3000000" />
+    <Color x:Key="OreUIBlackOpacity80Color">#CC000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity80Brush" Color="#CC000000" />
+    <Color x:Key="OreUIBlackOpacity90Color">#E6000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity90Brush" Color="#E6000000" />
+
+    <Color x:Key="OreUIWhiteOpacity10Color">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity10Brush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity20Color">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity20Brush" Color="#33FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity30Color">#4DFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity30Brush" Color="#4DFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity40Color">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity40Brush" Color="#66FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity50Color">#80FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity50Brush" Color="#80FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity60Color">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity60Brush" Color="#99FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity70Color">#B3FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity70Brush" Color="#B3FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity80Color">#CCFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity80Brush" Color="#CCFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity90Color">#E6FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity90Brush" Color="#E6FFFFFF" />
+
+    <!-- ==================== 语义色 (semantic) ==================== -->
+
+    <Color x:Key="OreUINeutralBackgroundColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralBackgroundHoveredColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundHoveredBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutralBackgroundPressedColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundPressedBrush" Color="#313233" />
+    <Color x:Key="OreUINeutralShadowColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutralShadowBrush" Color="#313233" />
+    <Color x:Key="OreUINeutralTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralTextDimmerColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDimmerBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralTextDimmestColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDimmestBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralIconDimmerColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmerBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralIconDimmestColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmestBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutralBorderFocusedColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderFocusedBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralBackgroundDisabledColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundDisabledBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralShadowDisabledColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralShadowDisabledBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralTextDisabledColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDisabledBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralIconDisabledColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDisabledBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralIconDimmerDisabledColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmerDisabledBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutralBorderDisabledColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderDisabledBrush" Color="#8C8D90" />
+
+    <Color x:Key="OreUINeutral20BackgroundColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutral20BackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral20BackgroundPressedColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundPressedBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral20ShadowColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral20ShadowBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutral20TextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20TextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutral20IconColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20IconBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutral20BorderFocusedColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BorderFocusedBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUINeutral50BackgroundColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutral50BackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral50BackgroundPressedColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundPressedBrush" Color="#58585A" />
+
+    <Color x:Key="OreUINeutral60BackgroundColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutral60BackgroundHoveredColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundHoveredBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutral60BackgroundPressedColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundPressedBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral60BorderTintColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BorderTintBrush" Color="#8C8D90" />
+
+    <Color x:Key="OreUINeutral80BackgroundColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundBrush" Color="#313233" />
+    <Color x:Key="OreUINeutral80BackgroundHoveredColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundHoveredBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral80BackgroundPressedColor">#242425</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundPressedBrush" Color="#242425" />
+    <Color x:Key="OreUINeutral80BackgroundSelectedColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundSelectedBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral80ShadowColor">#242425</Color>
+    <SolidColorBrush x:Key="OreUINeutral80ShadowBrush" Color="#242425" />
+
+    <Color x:Key="OreUINeutral100BackgroundColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral100BackgroundBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIPrimaryBackgroundColor">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundBrush" Color="#3C8527" />
+    <Color x:Key="OreUIPrimaryBackgroundHoveredColor">#2A641C</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundHoveredBrush" Color="#2A641C" />
+    <Color x:Key="OreUIPrimaryBackgroundPressedColor">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundPressedBrush" Color="#1D4D13" />
+    <Color x:Key="OreUIPrimaryShadowColor">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryShadowBrush" Color="#1D4D13" />
+    <Color x:Key="OreUIPrimaryTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIPrimaryIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIPrimaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIPrimaryTintBackgroundColor">#6CC349</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintBackgroundBrush" Color="#6CC349" />
+    <Color x:Key="OreUIPrimaryTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIPrimaryTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUISecondaryBackgroundColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUISecondaryBackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUISecondaryBackgroundPressedColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundPressedBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUISecondaryShadowColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUISecondaryShadowBrush" Color="#58585A" />
+    <Color x:Key="OreUISecondaryTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISecondaryIconColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryIconBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISecondaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUISuccessBackgroundColor">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUISuccessBackgroundBrush" Color="#3C8527" />
+    <Color x:Key="OreUISuccessTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISuccessTextBrush" Color="#FFFFFF" />
+
+    <Color x:Key="OreUISuccessTintBackgroundColor">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintBackgroundBrush" Color="#A0E081" />
+    <Color x:Key="OreUISuccessTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISuccessTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIInformativeBackgroundColor">#2E6BE5</Color>
+    <SolidColorBrush x:Key="OreUIInformativeBackgroundBrush" Color="#2E6BE5" />
+    <Color x:Key="OreUIInformativeTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIInformativeBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIInformativeTintBackgroundColor">#8CB3FF</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintBackgroundBrush" Color="#8CB3FF" />
+    <Color x:Key="OreUIInformativeTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIInformativeTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDestructiveBackgroundColor">#CA3636</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundBrush" Color="#CA3636" />
+    <Color x:Key="OreUIDestructiveBackgroundHoveredColor">#C02D2D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundHoveredBrush" Color="#C02D2D" />
+    <Color x:Key="OreUIDestructiveBackgroundPressedColor">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundPressedBrush" Color="#AD1D1D" />
+    <Color x:Key="OreUIDestructiveShadowColor">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveShadowBrush" Color="#AD1D1D" />
+    <Color x:Key="OreUIDestructiveTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIDestructiveIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIDestructiveBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDestructiveTintBackgroundColor">#F46D6D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintBackgroundBrush" Color="#F46D6D" />
+    <Color x:Key="OreUIDestructiveTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIDestructiveTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUINoticeBackgroundColor">#D3791F</Color>
+    <SolidColorBrush x:Key="OreUINoticeBackgroundBrush" Color="#D3791F" />
+
+    <Color x:Key="OreUINoticeTintBackgroundColor">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintBackgroundBrush" Color="#FFE866" />
+    <Color x:Key="OreUINoticeTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINoticeTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsPrimaryBackgroundColor">#7345E5</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundBrush" Color="#7345E5" />
+    <Color x:Key="OreUIRealmsPrimaryBackgroundHoveredColor">#5D2CC6</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundHoveredBrush" Color="#5D2CC6" />
+    <Color x:Key="OreUIRealmsPrimaryBackgroundPressedColor">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundPressedBrush" Color="#4A1CAC" />
+    <Color x:Key="OreUIRealmsPrimaryShadowColor">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryShadowBrush" Color="#4A1CAC" />
+    <Color x:Key="OreUIRealmsPrimaryTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsPrimaryIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsPrimaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsPrimaryTintBackgroundColor">#AC90F3</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintBackgroundBrush" Color="#AC90F3" />
+    <Color x:Key="OreUIRealmsPrimaryTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIRealmsPrimaryTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsInformativeBackgroundColor">#050029</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeBackgroundBrush" Color="#050029" />
+    <Color x:Key="OreUIRealmsInformativeTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsInformativeBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDataviz01Color">#42CCCC</Color>
+    <SolidColorBrush x:Key="OreUIDataviz01Brush" Color="#42CCCC" />
+    <Color x:Key="OreUIDataviz02Color">#9471E0</Color>
+    <SolidColorBrush x:Key="OreUIDataviz02Brush" Color="#9471E0" />
+    <Color x:Key="OreUIDataviz03Color">#FFB366</Color>
+    <SolidColorBrush x:Key="OreUIDataviz03Brush" Color="#FFB366" />
+    <Color x:Key="OreUIDataviz04Color">#89DEF9</Color>
+    <SolidColorBrush x:Key="OreUIDataviz04Brush" Color="#89DEF9" />
+    <Color x:Key="OreUIDataviz05Color">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUIDataviz05Brush" Color="#A0E081" />
+    <Color x:Key="OreUIDataviz06Color">#F064B8</Color>
+    <SolidColorBrush x:Key="OreUIDataviz06Brush" Color="#F064B8" />
+    <Color x:Key="OreUIDataviz07Color">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUIDataviz07Brush" Color="#FFE866" />
+    <Color x:Key="OreUIDatavizLinesColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUIDatavizLinesBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUICanvasBackgroundColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUICanvasBackgroundBrush" Color="#1E1E1F" />
+
+    <!-- ==================== 立体效果 (effects: specular / bevel) ==================== -->
+    <Color x:Key="OreUISpecularDefaultTopLeftColor">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularDefaultTopLeftBrush" Color="#99FFFFFF" />
+    <Color x:Key="OreUISpecularDefaultBottomRightColor">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularDefaultBottomRightBrush" Color="#66FFFFFF" />
+    <Color x:Key="OreUISpecularTopLeftColor">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopLeftBrush" Color="#33FFFFFF" />
+    <Color x:Key="OreUISpecularBottomRightColor">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularBottomRightBrush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUISpecularTopBottomTopColor">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopBottomTopBrush" Color="#33FFFFFF" />
+    <Color x:Key="OreUISpecularTopBottomBottomColor">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopBottomBottomBrush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUIBevelDefaultTopLeftColor">#CCFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelDefaultTopLeftBrush" Color="#CCFFFFFF" />
+    <Color x:Key="OreUIBevelDefaultBottomRightColor">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelDefaultBottomRightBrush" Color="#99FFFFFF" />
+    <Color x:Key="OreUIBevelTopBottomTopColor">#80FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelTopBottomTopBrush" Color="#80FFFFFF" />
+    <Color x:Key="OreUIBevelTopBottomBottomColor">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelTopBottomBottomBrush" Color="#66FFFFFF" />
+
+    <!-- ==================== 字体族 (typography.families) ==================== -->
+    <FontFamily x:Key="OreUIFontMcTen">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Ten.otf#Minecraft Ten v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcSeven">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Seven.otf#Minecraft Seven v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcFive">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Five.otf#Minecraft Five v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcFiveBold">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Five-Bold.otf#Minecraft Five v2</FontFamily>
+    <FontFamily x:Key="OreUIFontNoto">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoBold">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoItalic">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Italic.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoBoldItalic">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-BoldItalic.ttf#Noto Sans</FontFamily>
+
+    <FontFamily x:Key="OreUIFontFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontTitleFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Ten.otf#Minecraft Ten v2</FontFamily>
+    <FontFamily x:Key="OreUIFontArticleTitleFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Seven.otf#Minecraft Seven v2</FontFamily>
+    <FontFamily x:Key="OreUIFontBodyFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontRegularFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans.ttf#Noto Sans</FontFamily>
+
+    <x:Double x:Key="OreUIFontSizePageTitle">24</x:Double>
+    <x:Double x:Key="OreUIFontSizeSidebarTitle">20</x:Double>
+    <x:Double x:Key="OreUIFontSizeArticleTitle">21</x:Double>
+    <x:Double x:Key="OreUIFontSizeArticleSubtitle">18</x:Double>
+    <x:Double x:Key="OreUIFontSizeModalTitle">18</x:Double>
+    <x:Double x:Key="OreUIFontSizeShowBlockTitle">17</x:Double>
+    <x:Double x:Key="OreUIFontSizeListTitle">17</x:Double>
+    <x:Double x:Key="OreUIFontSizeBody">16</x:Double>
+    <x:Double x:Key="OreUIFontSizeDropdown">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeSidebarDetail">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeHint">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeShowBlockDescription">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeTag">12</x:Double>
+    <x:Double x:Key="OreUIFontSizeTooltip">12</x:Double>
+    <x:Double x:Key="OreUIFontSizePageInfo">12</x:Double>
+
+    <x:Double x:Key="OreUILineHeightFactor">1.35</x:Double>
+
+    <!-- ==================== 组件尺寸 (component metrics) ==================== -->
+
+    <x:Double x:Key="OreUIWindowMinWidth">330</x:Double>
+
+    <x:Double x:Key="OreUIButtonHeight">40</x:Double>
+    <x:Double x:Key="OreUIButtonMargin">6</x:Double>
+    <x:Double x:Key="OreUIButtonActiveOffset">4</x:Double>
+    <x:Double x:Key="OreUIButtonPaddingBottom">6</x:Double>
+    <x:Double x:Key="OreUIButtonIconSize">14</x:Double>
+    <x:Double x:Key="OreUIButtonTooltipTop">-30</x:Double>
+    <x:Double x:Key="OreUIButtonExtraSmall">100</x:Double>
+    <x:Double x:Key="OreUIButtonSmall">130</x:Double>
+    <x:Double x:Key="OreUIButtonMiddle">200</x:Double>
+    <x:Double x:Key="OreUIButtonLarge">272</x:Double>
+    <x:Double x:Key="OreUIButtonSidebar">140</x:Double>
+    <x:Double x:Key="OreUIButtonBorderWidth">2</x:Double>
+
+    <x:Double x:Key="OreUICheckboxSize">20</x:Double>
+    <x:Double x:Key="OreUICheckboxBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUICheckboxCheckmarkSize">27</x:Double>
+    <x:Double x:Key="OreUICheckboxMargin">5</x:Double>
+
+    <x:Double x:Key="OreUISwitchWidth">58</x:Double>
+    <x:Double x:Key="OreUISwitchHeight">24</x:Double>
+    <x:Double x:Key="OreUISwitchSliderSize">28</x:Double>
+    <x:Double x:Key="OreUISwitchSliderTop">-6</x:Double>
+    <x:Double x:Key="OreUISwitchSliderLeftOff">-2</x:Double>
+    <x:Double x:Key="OreUISwitchSliderLeftOn">28</x:Double>
+    <x:Double x:Key="OreUISwitchBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUISwitchBounceMs">175</x:Double>
+
+    <x:Double x:Key="OreUISliderTrackHeight">8</x:Double>
+    <x:Double x:Key="OreUISliderThumbSize">28</x:Double>
+    <x:Double x:Key="OreUISliderBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUISliderContentHeight">30</x:Double>
+    <x:Double x:Key="OreUISliderSegmentWidth">2</x:Double>
+
+    <x:Double x:Key="OreUITextFieldMinHeight">40</x:Double>
+    <x:Double x:Key="OreUITextFieldBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingTop">10</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingRight">10</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingBottom">11</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUITextFieldBottomShadow">4</x:Double>
+    <x:Double x:Key="OreUITextFieldHintTop">11</x:Double>
+    <x:Double x:Key="OreUITextFieldHintLeft">10</x:Double>
+    <x:Double x:Key="OreUITextFieldFocusUnderlineHeight">2</x:Double>
+
+    <x:Double x:Key="OreUIDropdownHeight">40</x:Double>
+    <x:Double x:Key="OreUIDropdownFontSize">14</x:Double>
+    <x:Double x:Key="OreUIDropdownMargin">6</x:Double>
+    <x:Double x:Key="OreUIDropdownBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIDropdownArrowWidth">24</x:Double>
+    <x:Double x:Key="OreUIDropdownCheckmarkWidth">24</x:Double>
+    <x:Double x:Key="OreUIDropdownOptionHeight">40</x:Double>
+
+    <x:Double x:Key="OreUITagFontSize">12</x:Double>
+    <x:Double x:Key="OreUITagMarginRight">5</x:Double>
+    <x:Double x:Key="OreUITagPaddingX">2</x:Double>
+
+    <x:Double x:Key="OreUIBadgeSize">6</x:Double>
+    <x:Double x:Key="OreUIBadgeMarginRight">6</x:Double>
+
+    <x:Double x:Key="OreUIDividerThickness">2</x:Double>
+    <x:Double x:Key="OreUIDividerMarginY">6</x:Double>
+    <x:Double x:Key="OreUIDividerBoxThickness">4</x:Double>
+    <x:Double x:Key="OreUIDividerLineThickness">2</x:Double>
+    <x:Double x:Key="OreUIDividerLineMarginY">1</x:Double>
+    <x:Double x:Key="OreUIDividerVerticalWidth">2</x:Double>
+    <x:Double x:Key="OreUIDividerVerticalMarginX">6</x:Double>
+
+    <x:Double x:Key="OreUIListBulletSize">6</x:Double>
+    <x:Double x:Key="OreUIListLevelIndent">16</x:Double>
+    <x:Double x:Key="OreUIListMarginY">10</x:Double>
+
+    <x:Double x:Key="OreUISidebarWidth">240</x:Double>
+    <x:Double x:Key="OreUISidebarScrollerWidth">238</x:Double>
+    <x:Double x:Key="OreUISidebarItemHeight">40</x:Double>
+    <x:Double x:Key="OreUISidebarItemPaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUISidebarTitleMinHeight">30</x:Double>
+    <x:Double x:Key="OreUISidebarDetailHeight">24</x:Double>
+    <x:Double x:Key="OreUISidebarDetailMarginBottom">24</x:Double>
+    <x:Double x:Key="OreUISidebarDividerThickness">2</x:Double>
+    <x:Double x:Key="OreUISidebarRightBorderThickness">2</x:Double>
+    <x:Double x:Key="OreUISidebarBreakpointWide">1200</x:Double>
+    <x:Double x:Key="OreUISidebarTransitionMs">600</x:Double>
+
+    <x:Double x:Key="OreUIScrollbarPrimaryWidth">22</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryTrackWidth">6</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbWidth">12</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbMinHeight">35</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryTrackInset">8</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbBorder">2</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryWidth">18</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryTrackWidth">6</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryThumbWidth">10</x:Double>
+    <x:Double x:Key="OreUIScrollbarFadeMs">1000</x:Double>
+
+    <x:Double x:Key="OreUIModalMinWidth">320</x:Double>
+    <x:Double x:Key="OreUIModalMaxWidth">600</x:Double>
+    <x:Double x:Key="OreUIModalTitleHeight">40</x:Double>
+    <x:Double x:Key="OreUIModalTitleFontSize">18</x:Double>
+    <x:Double x:Key="OreUIModalContentMaxHeight">450</x:Double>
+    <x:Double x:Key="OreUIModalContentMinHeight">60</x:Double>
+    <x:Double x:Key="OreUIModalCloseButtonWidth">32</x:Double>
+    <x:Double x:Key="OreUIModalCloseIconSize">20</x:Double>
+    <x:Double x:Key="OreUIModalBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIModalButtonAreaPaddingY">2</x:Double>
+
+    <x:Double x:Key="OreUIPageTitleMinHeight">70</x:Double>
+    <x:Double x:Key="OreUIPageTitleMarginY">10</x:Double>
+    <x:Double x:Key="OreUIPageTitleMarginX">20</x:Double>
+    <x:Double x:Key="OreUIPageTitleBorderBottom">2</x:Double>
+
+    <x:Double x:Key="OreUIMainBlockMinHeight">66</x:Double>
+    <x:Double x:Key="OreUIMainBlockPaddingY">8</x:Double>
+    <x:Double x:Key="OreUIMainBlockBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIMainBlockMarginX">20</x:Double>
+    <x:Double x:Key="OreUIMainBlockSpacing">20</x:Double>
+
+    <x:Double x:Key="OreUIMainDisplayMinHeight">60</x:Double>
+    <x:Double x:Key="OreUIMainDisplayPaddingY">8</x:Double>
+    <x:Double x:Key="OreUIMainDisplayPaddingX">16</x:Double>
+
+    <x:Double x:Key="OreUIBannerMarginY">10</x:Double>
+    <x:Double x:Key="OreUIBannerPadding">10</x:Double>
+    <x:Double x:Key="OreUIBannerMinHeight">30</x:Double>
+    <x:Double x:Key="OreUIBannerMarginX">20</x:Double>
+
+    <x:Double x:Key="OreUIPopBottomOffset">40</x:Double>
+    <x:Double x:Key="OreUIPopMaxWidthRatio">0.9</x:Double>
+    <x:Double x:Key="OreUIPopMaxWidth">500</x:Double>
+    <x:Double x:Key="OreUIPopLifetimeMs">3000</x:Double>
+    <x:Double x:Key="OreUIPopFadeMs">300</x:Double>
+    <x:Double x:Key="OreUIPopMaxVisible">5</x:Double>
+    <x:Double x:Key="OreUIPopPaddingY">10</x:Double>
+    <x:Double x:Key="OreUIPopPaddingX">20</x:Double>
+    <x:Double x:Key="OreUIPopMarginY">6</x:Double>
+
+    <x:Double x:Key="OreUILoadingSpinnerSize">60</x:Double>
+    <x:Double x:Key="OreUILoadingTextSize">24</x:Double>
+    <x:Double x:Key="OreUILoadingErrorImageHeight">160</x:Double>
+    <x:Double x:Key="OreUILoadingFadeMs">800</x:Double>
+    <x:Double x:Key="OreUILoadingHoldMs">700</x:Double>
+
+    <x:Double x:Key="OreUIShowBlockBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIShowBlockPaddingY">5</x:Double>
+    <x:Double x:Key="OreUIShowBlockPaddingX">17</x:Double>
+    <x:Double x:Key="OreUIShowBlockMargin">6</x:Double>
+    <x:Double x:Key="OreUIShowBlockTitleSize">17</x:Double>
+    <x:Double x:Key="OreUIShowBlockDescriptionSize">14</x:Double>
+    <x:Double x:Key="OreUIShowBlockTitleIconSize">20</x:Double>
+
+    <x:Double x:Key="OreUIArticleMinWidth">270</x:Double>
+    <x:Double x:Key="OreUIArticleWidthRatio">0.9</x:Double>
+    <x:Double x:Key="OreUIArticleNoteBorderLeft">6</x:Double>
+    <x:Double x:Key="OreUIArticleNotePadding">10</x:Double>
+    <x:Double x:Key="OreUIArticleListTitleBorderLeft">6</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingTop">4</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingRight">0</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingBottom">4</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUIArticleTitleMargin">15</x:Double>
+    <x:Double x:Key="OreUIArticleDateMargin">10</x:Double>
+
+    <!-- ==================== 10-button.xaml ==================== -->
+    <!--
+        OreUI 按钮模板。
+        立体质感由四层构成（对照 Web 端的 box-shadow inset 分层）：
+          OreFillBorder          -> background-color + 2px border
+          OreSpecularTopLeft     -> inset  3px  3px <specular-top-left>
+          OreSpecularBottomRight -> inset -3px -7px <specular-bottom-right>
+          OreBottomShadow        -> inset  0   -4px <shadow>
+        颜色不在这里写死，由 OreButton.ApplyVisualState() 依据
+        OreUIPalettes.Button(status, type, state) 在运行时写入。
+    -->
+    <Style TargetType="local:OreButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Height" Value="{ThemeResource OreUIButtonHeight}" />
+        <Setter Property="Width" Value="{ThemeResource OreUIButtonMiddle}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <!--
+            OreUI 没有系统焦点矩形：上游表达聚焦用的是 neutral-border-focused(纯白) 描边。
+            这里原来是 True；把 XamlControlsResources 加回 App.xaml 之后，WinUI 的系统焦点
+            视觉开始生效，弹窗打开时焦点落到主按钮上就画出一圈高亮
+            —— 这正是「弹窗上面有黄色高亮」的来源。
+        -->
+        <Setter Property="UseSystemFocusVisuals" Value="False" />
+        <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+        <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreButton">
+                    <Grid x:Name="OreRoot" Background="Transparent">
+                        <Border
+                            x:Name="OreFillBorder"
+                            BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Grid Margin="{TemplateBinding BorderThickness}" IsHitTestVisible="False">
+                            <Border x:Name="OreSpecularTopLeft" />
+                            <Border x:Name="OreSpecularBottomRight" />
+                            <Border
+                                x:Name="OreBottomShadow"
+                                VerticalAlignment="Bottom"
+                                Height="4" />
+                        </Grid>
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <FontIcon
+                                x:Name="OreLeftGlyph"
+                                FontSize="14"
+                                Visibility="Collapsed" />
+                            <Image
+                                x:Name="OreLeftImage"
+                                Width="14"
+                                Height="14"
+                                Visibility="Collapsed" />
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                VerticalAlignment="Center" />
+                            <FontIcon
+                                x:Name="OreRightGlyph"
+                                FontSize="14"
+                                Visibility="Collapsed" />
+                            <Image
+                                x:Name="OreRightImage"
+                                Width="14"
+                                Height="14"
+                                Visibility="Collapsed" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ==================== 20-controls.xaml ==================== -->
+    <!-- ============================ OreCheckBox ============================ -->
+    <Style TargetType="local:OreCheckBox">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Margin" Value="5" />
+        <!-- 同上：OreUI 用白色描边表达聚焦，不用系统焦点矩形 -->
+        <Setter Property="UseSystemFocusVisuals" Value="False" />
+        <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+        <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreCheckBox">
+                    <Grid Background="Transparent">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid Width="20" Height="20" VerticalAlignment="Center">
+                                <Border x:Name="OreFillBorder" BorderThickness="2" />
+                                <Grid Margin="2" IsHitTestVisible="False">
+                                    <Border x:Name="OreSpecularTopLeft" />
+                                    <Border x:Name="OreSpecularBottomRight" />
+                                </Grid>
+                                <!--
+                                    上游用 <img src="check_white.png">，27x27 故意溢出 20px 方块
+                                    （CSS: width:27px;height:27px;position:absolute;left:50%;top:50%;
+                                     transform:translate(-50%,-50%)）。不是 Fluent 的 E73E 字形。
+                                -->
+                                <Image
+                                    x:Name="OreCheckGlyph"
+                                    Width="27"
+                                    Height="27"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Stretch="Uniform"
+                                    Visibility="Collapsed" />
+                            </Grid>
+                            <ContentPresenter
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========================== OreToggleSwitch ========================== -->
+    <!-- 轨道是「左绿右灰」的硬分界（CSS linear-gradient 50% 突变），滑块 28x28 溢出轨道 -->
+    <Style TargetType="local:OreToggleSwitch">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreToggleSwitch">
+                    <!--
+                        布局盒高度用 28（= 滑块高度），**不要**用上游的 24。
+                        上游 .switch{height:24px} 靠绝对定位让 28px 的滑块上溢 4px（-4..24），
+                        CSS 默认不裁剪所以没事；但在 WinUI 里这个上溢会被裁掉，滑块顶部缺一块。
+                        这里改成把整块装进盒子：根 Grid 28 高，轨道 24 高贴底 => 轨道占 4..28，
+                        滑块占 0..28。**滑块底边与轨道底边齐平、顶部高出轨道 4px** 的相对关系
+                        与上游完全一致，但没有任何元素越界，不会被裁。
+                        水平方向本来就不越界：轨道宽 58，滑块 0..28 / 30..58。
+                    -->
+                    <Grid
+                        Width="58"
+                        Height="28"
+                        Background="Transparent">
+                        <Grid
+                            Width="58"
+                            Height="24"
+                            VerticalAlignment="Bottom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                                x:Name="OreSwitchTrackLeft"
+                                Grid.Column="0"
+                                Background="#3C8527" />
+                            <Border
+                                x:Name="OreSwitchTrackRight"
+                                Grid.Column="1"
+                                Background="#8C8D90" />
+                            <Border
+                                x:Name="OreFillBorder"
+                                Grid.ColumnSpan="2"
+                                BorderThickness="2" />
+                            <Grid
+                                Grid.ColumnSpan="2"
+                                Margin="2"
+                                IsHitTestVisible="False">
+                                <Border x:Name="OreSpecularTopLeft" />
+                                <Border x:Name="OreSpecularBottomRight" />
+                            </Grid>
+                        </Grid>
+                        <!--
+                            滑块的坐标基准必须与上游一致。
+                            上游 .switch_slider{position:absolute; left:-2px; top:-6px} 是相对**包含块的
+                            padding box**（2px 边框之内）算的 => 换算成轨道 border box 就是左 0 / 上 -4，
+                            底边正好与轨道底边(24)齐平。
+                            这里删掉 Margin="0,0,0,2"：它让滑块底边比轨道底边高 2px。
+                            垂直对齐用 Bottom，28 高的滑块在 24 高的盒子里自然上溢 4px，与上游一致。
+                        -->
+                        <Grid
+                            x:Name="OreSwitchKnob"
+                            Width="28"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:Name="OreKnobTransform" X="0" />
+                            </Grid.RenderTransform>
+                            <Border
+                                x:Name="OreKnobFill"
+                                Background="#D0D1D4"
+                                BorderBrush="#1E1E1F"
+                                BorderThickness="2" />
+                            <Grid Margin="2" IsHitTestVisible="False">
+                                <Border
+                                    x:Name="OreKnobSpecularTopLeft"
+                                    BorderBrush="#FFFFFF99"
+                                    BorderThickness="2,2,0,0" />
+                                <Border
+                                    x:Name="OreKnobSpecularBottomRight"
+                                    BorderBrush="#FFFFFF66"
+                                    BorderThickness="0,0,2,6" />
+                                <!--
+                                    CSS 的 box-shadow 是「先写的画在最上层」：
+                                    inset 0 -4px #58585A 写在最前面 => 它压在两道高光之上。
+                                    XAML 里后写的兄弟元素画在上层，所以这条必须放最后，
+                                    否则白色高光会盖住底部厚度，滑块看起来像多加了一道亮边。
+                                -->
+                                <Border
+                                    x:Name="OreKnobShadow"
+                                    Height="4"
+                                    VerticalAlignment="Bottom"
+                                    Background="#58585A" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreSlider ============================= -->
+    <Style TargetType="local:OreSlider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreSlider">
+                    <Grid Height="30" Background="Transparent">
+                        <Border
+                            x:Name="OreFillBorder"
+                            Height="8"
+                            Margin="6,0"
+                            VerticalAlignment="Center"
+                            BorderThickness="2" />
+                        <Grid
+                            Height="8"
+                            Margin="6,0"
+                            VerticalAlignment="Center"
+                            IsHitTestVisible="False">
+                            <Border x:Name="OreSpecularTopLeft" />
+                            <Border x:Name="OreSpecularBottomRight" />
+                        </Grid>
+                        <Border
+                            x:Name="OreSliderProcess"
+                            Height="8"
+                            Margin="6,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#3C8527" />
+                        <!--
+                            刻度层必须和滑块共用同一个坐标原点。
+                            这里**不能**加 Margin="6,0"：Canvas 自己的原点会因此右移 6px，
+                            而 BuildSegments 用的是相对控件左边的 InnerLeft(=6 边距 + 2 边框 = 8)，
+                            两边一叠加刻度就整体偏右 6px —— 看起来就是「滑块和刻度对不齐」。
+                            留 Margin=0 让 Canvas 铺满整个控件，刻度与滑块（OreSliderThumb 无 margin）
+                            才在同一坐标系里。
+                        -->
+                        <Canvas
+                            x:Name="OreSegmentLayer"
+                            Height="8"
+                            VerticalAlignment="Center"
+                            IsHitTestVisible="False" />
+                        <Grid
+                            x:Name="OreSliderThumb"
+                            Width="28"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:Name="OreThumbTransform" />
+                            </Grid.RenderTransform>
+                            <Border
+                                x:Name="OreThumbFill"
+                                Background="#D0D1D4"
+                                BorderBrush="#1E1E1F"
+                                BorderThickness="2" />
+                            <Grid Margin="2" IsHitTestVisible="False">
+                                <Border
+                                    x:Name="OreThumbSpecularTopLeft"
+                                    BorderBrush="#FFFFFF99"
+                                    BorderThickness="2,2,0,0" />
+                                <Border
+                                    x:Name="OreThumbSpecularBottomRight"
+                                    BorderBrush="#FFFFFF66"
+                                    BorderThickness="0,0,2,6" />
+                                <!--
+                                    .slider_slider 的 box-shadow 第一条是 inset 0 -4px #58585A，
+                                    按 CSS 顺序画在最上层；之前漏了这一层，滑块只剩一道白高光，
+                                    看着就像「无缘无故多加了个高亮」。放最后 = 盖住高光。
+                                -->
+                                <Border
+                                    x:Name="OreThumbBottomShadow"
+                                    Height="4"
+                                    VerticalAlignment="Bottom"
+                                    Background="#58585A" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ==================== 30-surfaces.xaml ==================== -->
+    <!-- ============================== OreTag ============================== -->
+    <Style TargetType="local:OreTag">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeTag}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreTag">
+                    <Border
+                        x:Name="OreTagBorder"
+                        Margin="0,0,5,0"
+                        Padding="2,0"
+                        Background="#1E1E1F">
+                        <ContentPresenter
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreBadge ============================= -->
+    <Style TargetType="local:OreBadge">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreBadge">
+                    <Border
+                        x:Name="OreBadgeBorder"
+                        Width="6"
+                        Height="6"
+                        Margin="0,0,6,0"
+                        Background="#FFFFFF" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================ 分割线系列 ============================ -->
+    <Style TargetType="local:OreDivider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreDivider">
+                    <Border
+                        Height="2"
+                        Margin="0,6"
+                        Background="#58585A" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreDividerBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreDividerBox">
+                    <Grid Height="4" Margin="0,6">
+                        <Border
+                            Height="2"
+                            VerticalAlignment="Top"
+                            Background="#333334" />
+                        <Border
+                            Height="2"
+                            VerticalAlignment="Bottom"
+                            Background="#5A5B5C" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreLine">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreLine">
+                    <Border
+                        Height="2"
+                        Margin="0,1"
+                        Background="#48494A" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreVerticalDivider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreVerticalDivider">
+                    <Border
+                        Width="2"
+                        Margin="6,0"
+                        Background="#FFFFFF" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreBanner ============================ -->
+    <Style TargetType="local:OreBanner">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="Margin" Value="0,10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreBanner">
+                    <Grid>
+                        <Border
+                            x:Name="OreBannerBorder"
+                            MinHeight="30"
+                            Margin="20,0"
+                            Padding="10"
+                            Background="#1E1E1F">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- =========================== OreShowBlock =========================== -->
+    <!-- 悬停时两道斜白条扫过（thickFlash / thinFlash），由 code-behind 驱动 Storyboard -->
+    <Style TargetType="local:OreShowBlock">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreShowBlock">
+                    <Grid Margin="6">
+                        <Border
+                            x:Name="OreShowBlockBorder"
+                            Background="Transparent"
+                            BorderBrush="#58585A"
+                            BorderThickness="2">
+                            <Grid>
+                                <StackPanel
+                                    Margin="17,5"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <StackPanel
+                                        HorizontalAlignment="Center"
+                                        Orientation="Horizontal">
+                                        <FontIcon
+                                            x:Name="OreTitleIcon"
+                                            Margin="0,0,5,0"
+                                            FontSize="20"
+                                            Visibility="Collapsed" />
+                                        <TextBlock
+                                            x:Name="OreTitleText"
+                                            FontSize="17"
+                                            Foreground="#FFFFFF" />
+                                    </StackPanel>
+                                    <TextBlock
+                                        x:Name="OreDescriptionText"
+                                        Margin="0,2,0,0"
+                                        FontSize="14"
+                                        Foreground="#D0D1D4"
+                                        TextAlignment="Center"
+                                        TextWrapping="Wrap"
+                                        Visibility="Collapsed" />
+                                </StackPanel>
+                                <!--
+                                    扫光层。三个必须对齐 Web 端的点（见 OreShowBlock.UpdateFlashGeometry）：
+                                    1) CSS skewX 绕元素中心，XAML SkewTransform 默认绕 (0,0) => 要设 CenterY=高度/2
+                                    2) CSS 的 left 从 -150% 扫到 150%（相对自身宽度），不是固定像素
+                                    3) CSS 有 overflow:hidden => 代码里给这一层加 Clip
+                                -->
+                                <Grid x:Name="OreFlashLayer" IsHitTestVisible="False">
+                                    <Rectangle
+                                        x:Name="OreFlashThick"
+                                        Width="15"
+                                        HorizontalAlignment="Left"
+                                        Fill="#FFFFFF99">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <SkewTransform x:Name="OreThickSkew" AngleX="-45" />
+                                                <TranslateTransform x:Name="OreThickTransform" X="-400" />
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                    <Rectangle
+                                        x:Name="OreFlashThin"
+                                        Width="6"
+                                        HorizontalAlignment="Left"
+                                        Fill="#FFFFFF80">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <SkewTransform x:Name="OreThinSkew" AngleX="-45" />
+                                                <TranslateTransform x:Name="OreThinTransform" X="-400" />
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========================== 页面骨架元素 ========================== -->
+    <Style TargetType="local:OrePageTitle">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontTitleFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizePageTitle}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OrePageTitle">
+                    <Border
+                        MinHeight="70"
+                        BorderBrush="#333334"
+                        BorderThickness="0,0,0,2">
+                        <ContentPresenter
+                            Margin="20,10"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlockFrame">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Margin" Value="20,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlockFrame">
+                    <Border
+                        BorderBrush="#333334"
+                        BorderThickness="2,2,2,2">
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlock">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlock">
+                    <Border
+                        MinHeight="66"
+                        Padding="0,8"
+                        BorderBrush="#333334"
+                        BorderThickness="2,2,2,2">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainDisplay">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainDisplay">
+                    <Border
+                        MinHeight="60"
+                        Padding="16,8"
+                        BorderBrush="#333334"
+                        BorderThickness="0,2,0,2">
+                        <ContentPresenter
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:OreMainBlockSpacing">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreMainBlockSpacing">
+                    <Border Height="20" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ==================== 40-overlays.xaml ==================== -->
+    <!-- ============================ OrePopHost ============================ -->
+    <!--
+        上游 oreui-pop-area：
+          bottom:40px; left:50%; transform:translateX(-50%);
+          width:min(90%,500px); display:flex; flex-direction:column-reverse;
+          align-items:center; overflow:hidden; pointer-events:none; z-index:100
+        column-reverse + prepend 的合效果是「新消息出现在最下方、整叠往上长」，
+        对应这里「垂直贴底 + 顺序追加」。
+        保真度取舍：min(90%, 500px) 里的 90% 在 XAML 里没有等价的百分比宽度，
+        只保留了 500px 上限（MaxWidth）。
+    -->
+    <Style TargetType="local:OrePopHost">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OrePopHost">
+                    <Grid>
+                        <StackPanel
+                            x:Name="OrePopStack"
+                            MaxWidth="500"
+                            Margin="0,0,0,40"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========================== OreLoadingMask ========================== -->
+    <!--
+        上游 oreui-loading-mask（layout/loading/style.css）：
+          background-color:#48494A; 铺满视口; flex 居中; opacity 过渡 0.8s
+          .spinner_img        { width:60px; height:60px }   -> Loading_white.gif（原图 144×144）
+          .spinner_text       { color:#FFFFFF; font-size:24px }
+          .spinner_img_error  { height:160px; padding:10px 0 } -> ErrorMessage.png（原图 160×160）
+          .spinner_text_error { color:#C02D2D; font-size:20px; font-weight:bold; padding:10px 0;
+                                -webkit-text-stroke:0.05em #FFFFFF }
+        ⚠️ 这里**不能**用 ProgressRing：OreUI 的加载指示器是一张动画 GIF，
+        用 WinUI 的转圈就是「一看就还是 WinUI3」的来源。Image 会自动播放 GIF。
+        保真度取舍：.spinner_text_error 的白色文字描边（-webkit-text-stroke）没有直接等价物，
+        只保留了红字加粗。
+    -->
+    <Style TargetType="local:OreLoadingMask">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreLoadingMask">
+                    <Border x:Name="OreMaskBorder" Background="#48494A">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <!-- oreui-loading-wrapper { flex-direction:column } -->
+                            <Image
+                                x:Name="OreSpinner"
+                                Width="60"
+                                Height="60"
+                                Stretch="Uniform" />
+                            <Image
+                                x:Name="OreErrorImage"
+                                Height="160"
+                                Margin="0,10"
+                                Stretch="Uniform"
+                                Visibility="Collapsed" />
+                            <TextBlock
+                                x:Name="OreLoadingText"
+                                FontSize="24"
+                                Foreground="#FFFFFF"
+                                Text="加载中…" />
+                            <TextBlock
+                                x:Name="OreErrorText"
+                                MaxWidth="420"
+                                Margin="0,10"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#C02D2D"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"
+                                Visibility="Collapsed" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreModal ============================= -->
+    <!--
+        逐条对齐上游 oreui.css：
+          .overlay          { background-color:rgba(0,0,0,.7) }        -> 代码里刷 #000000B3
+          modal_area        { border:2px solid #1E1E1F; min-width:320px;
+                              max-width:min(600px,100vw); 居中 }
+          modal             { background-color:#313233; color:#FFFFFF; text-align:center }
+          modal_title_area  { background-color:#48494A; height:40px;
+                              box-shadow: inset 2px 2px rgba(255,255,255,.2),
+                                          inset -2px -2px rgba(255,255,255,.1);
+                              font-size:18px }
+          modal_title       { 居中; top calc(50% - 1px) }
+          modal_close_btn   { right:4px; 垂直居中; width:32px; height:calc(100% - 8px);
+                              hover/active { background-color:#58585A } }
+          .modal_close_btn_img { width:20px; height:20px }             -> cross_white.png（原图 52×52）
+          modal_content     { min-height:60px; max-height:min(450px,90vh-150px);
+                              padding:10px; overflow-y:auto; scrollbar-width:none;
+                              display:grid; align-items:center }
+          modal_button_area { background-color:#48494A; padding:2px 0;
+                              border-top:2px solid #5A5B5C; border-bottom:2px solid #333334 }
+          modal_button_group{ width:calc(100% - 20px) }
+          modal_button_list { display:flex; align-items:center }
+          .modal_btn        { width:calc(100% - 10px) }
+
+        ⚠️ 上游 CSS 里 modal_title_area **没有** font-family —— 弹窗标题不是 Minecraft Ten，
+        而是继承页面正文字体（按钮才用 NotoSans Bold）。别给它套 mc-ten。
+        保真度取舍：max-height 里的 90vh-150px 方差在 XAML 里按固定 450px 处理。
+    -->
+    <Style TargetType="local:OreModal">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreModal">
+                    <Grid>
+                        <Border x:Name="OreModalOverlay" Background="#000000B3" />
+                        <Border
+                            x:Name="OreModalPanel"
+                            MinWidth="320"
+                            MaxWidth="600"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#313233"
+                            BorderBrush="#1E1E1F"
+                            BorderThickness="2">
+                            <StackPanel>
+                                <Border
+                                    x:Name="OreTitleArea"
+                                    Height="40"
+                                    Background="#48494A">
+                                    <Grid>
+                                        <!--
+                                            inset 阴影没有 XAML 等价物，拆成两条内描边。
+                                            CSS 里 inset 2px 2px 写在前面 = 画在上层，
+                                            而 XAML 是「越靠后越在上层」 => 高光必须放最后。
+                                        -->
+                                        <Border
+                                            BorderBrush="#FFFFFF1A"
+                                            BorderThickness="0,0,2,2"
+                                            IsHitTestVisible="False" />
+                                        <Border
+                                            BorderBrush="#FFFFFF33"
+                                            BorderThickness="2,2,0,0"
+                                            IsHitTestVisible="False" />
+                                        <TextBlock
+                                            x:Name="OreModalTitleText"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="18"
+                                            Foreground="#FFFFFF" />
+                                        <Grid>
+                                            <!--
+                                                关闭键：上游是图片不是字体图标。
+                                                再叠一层 Image 而不是塞进 Button.Content，
+                                                是为了让具名部件留在模板命名域里（GetTemplateChild 更稳）。
+                                                Button 本体宽 32 且右边距 4，中心距右 20，
+                                                所以 20px 的图右边距取 4 + (32-20)/2 = 10。
+                                            -->
+                                            <Button
+                                                x:Name="OreModalCloseIcon"
+                                                Width="32"
+                                                Margin="0,4,4,4"
+                                                Padding="0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Stretch"
+                                                Background="Transparent"
+                                                BorderThickness="0">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid x:Name="OreCloseRoot" Background="{TemplateBinding Background}">
+                                                            <VisualStateManager.VisualStateGroups>
+                                                                <VisualStateGroup x:Name="CommonStates">
+                                                                    <VisualState x:Name="Normal" />
+                                                                    <VisualState x:Name="PointerOver">
+                                                                        <Storyboard>
+                                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OreCloseRoot" Storyboard.TargetProperty="Background">
+                                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#58585A" />
+                                                                            </ObjectAnimationUsingKeyFrames>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Pressed">
+                                                                        <Storyboard>
+                                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OreCloseRoot" Storyboard.TargetProperty="Background">
+                                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#58585A" />
+                                                                            </ObjectAnimationUsingKeyFrames>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Disabled" />
+                                                                </VisualStateGroup>
+                                                            </VisualStateManager.VisualStateGroups>
+                                                            <ContentPresenter
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                Content="{TemplateBinding Content}" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                            <Image
+                                                x:Name="OreCloseGlyph"
+                                                Width="20"
+                                                Height="20"
+                                                Margin="0,0,10,0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                IsHitTestVisible="False"
+                                                Stretch="Uniform" />
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <ScrollViewer
+                                    x:Name="OreContentArea"
+                                    MinHeight="60"
+                                    MaxHeight="450"
+                                    Padding="10"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    HorizontalScrollMode="Disabled"
+                                    VerticalScrollBarVisibility="Hidden"
+                                    VerticalScrollMode="Auto">
+                                    <ContentPresenter
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Foreground="{TemplateBinding Foreground}" />
+                                </ScrollViewer>
+                                <Border
+                                    x:Name="OreButtonArea"
+                                    Background="#48494A"
+                                    BorderBrush="#5A5B5C"
+                                    BorderThickness="0,2,0,0">
+                                    <Border
+                                        Padding="0,2"
+                                        BorderBrush="#333334"
+                                        BorderThickness="0,0,0,2">
+                                        <!-- modal_button_group: width calc(100% - 20px) -->
+                                        <Grid Margin="10,0">
+                                            <!-- modal_button_list + .modal_btn width calc(100% - 10px) = 两个等宽按钮 -->
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <local:OreButton
+                                                x:Name="OrePrimaryButton"
+                                                Grid.Column="0"
+                                                Margin="0,0,5,0"
+                                                HorizontalAlignment="Stretch"
+                                                Content="确定"
+                                                Size="ExtraSmall"
+                                                Status="Green" />
+                                            <local:OreButton
+                                                x:Name="OreCloseButton"
+                                                Grid.Column="1"
+                                                Margin="5,0,0,0"
+                                                HorizontalAlignment="Stretch"
+                                                Content="取消"
+                                                Size="ExtraSmall" />
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ==================== 50-inputs.xaml ==================== -->
+    <!-- ============================ OreTextBox ============================ -->
+    <!--
+        WinUI TextBox 模板契约：必须提供名为 ContentElement 的 ScrollViewer 与
+        PlaceholderTextContentPresenter，否则文本无法渲染 / 占位符不显示。
+        OreUI 的凹陷感 = 2px 黑边 + 顶部 4px 内阴影（inset 0 4px #242425）。
+    -->
+    <Style TargetType="local:OreTextBox">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="MinHeight" Value="{ThemeResource OreUITextFieldMinHeight}" />
+        <Setter Property="Padding" Value="10,10,11,10" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="SelectionHighlightColor" Value="#6CC349" />
+        <!-- 同上：OreUI 不用系统焦点矩形 -->
+        <Setter Property="UseSystemFocusVisuals" Value="False" />
+        <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+        <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreTextBox">
+                    <Grid>
+                        <Border
+                            x:Name="OreFillBorder"
+                            BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Grid Margin="{TemplateBinding BorderThickness}" IsHitTestVisible="False">
+                            <Border
+                                x:Name="OreInsetTopShadow"
+                                Height="4"
+                                VerticalAlignment="Top"
+                                Background="#242425" />
+                        </Grid>
+                        <ScrollViewer
+                            x:Name="ContentElement"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalScrollBarVisibility="Disabled"
+                            HorizontalScrollMode="Disabled"
+                            VerticalScrollBarVisibility="Auto"
+                            VerticalScrollMode="Auto" />
+                        <ContentPresenter
+                            x:Name="PlaceholderTextContentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding PlaceholderText}"
+                            IsHitTestVisible="False" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- =========================== OreButtonGroup ========================== -->
+    <Style TargetType="local:OreButtonGroup">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreButtonGroup">
+                    <ContentPresenter
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- =========================== OreTextField =========================== -->
+    <Style TargetType="local:OreTextField">
+        <Setter Property="Margin" Value="6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreTextField">
+                    <Grid>
+                        <ContentPresenter
+                            VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ==================== 60-sidebar.xaml ==================== -->
+    <!-- ========================== OreSidebarItem ========================== -->
+    <Style TargetType="local:OreSidebarItem">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreSidebarItem">
+                    <Border
+                        x:Name="OreItemBorder"
+                        Height="40"
+                        Padding="10,0,0,0"
+                        Background="Transparent">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <FontIcon
+                                x:Name="OreItemIcon"
+                                Margin="0,0,8,0"
+                                FontSize="16"
+                                Foreground="#FFFFFF"
+                                Visibility="Collapsed" />
+                            <TextBlock
+                                x:Name="OreItemText"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="#FFFFFF"
+                                TextTrimming="CharacterEllipsis" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================ OreSidebar ============================ -->
+    <!--
+        窄屏：遮罩 + 左侧滑出面板（600ms cubic 缓动，对应 sidebar-transition）。
+        宽屏（≥1200）：面板常驻、遮罩隐藏，对应 @media (min-width: 1200px)。
+    -->
+    <Style TargetType="local:OreSidebar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreSidebar">
+                    <Grid>
+                        <ContentPresenter
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <Border
+                            x:Name="OreSidebarMask"
+                            Background="#000000B3"
+                            Visibility="Collapsed" />
+                        <Grid
+                            x:Name="OreSidebarPanel"
+                            Width="238"
+                            HorizontalAlignment="Left"
+                            Background="#313233"
+                            BorderBrush="#1E1E1F"
+                            BorderThickness="0,0,2,0">
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:Name="OrePanelTransform" X="-240" />
+                            </Grid.RenderTransform>
+                            <!--
+                                上游 oreui-scroll-view 是 overflow-y: hidden —— 侧边栏压根不显示滚动条。
+                                用 Auto 会露出 WinUI 的原生滚动条，整条侧边栏立刻「很 WinUI」。
+                                Hidden 仍支持滚轮滚动，只是不画滚动条。
+                            -->
+                            <ScrollViewer
+                                HorizontalScrollBarVisibility="Disabled"
+                                HorizontalScrollMode="Disabled"
+                                VerticalScrollBarVisibility="Hidden"
+                                VerticalScrollMode="Auto">
+                                <StackPanel Margin="0,10">
+                                    <TextBlock
+                                        x:Name="OreSidebarTitle"
+                                        Margin="0,6"
+                                        FontFamily="{ThemeResource OreUIFontTitleFamily}"
+                                        FontSize="20"
+                                        Foreground="#FFFFFF"
+                                        TextAlignment="Center" />
+                                    <TextBlock
+                                        x:Name="OreSidebarDetail"
+                                        Margin="0,0,0,24"
+                                        FontSize="14"
+                                        Foreground="#D0D1D4"
+                                        TextAlignment="Center"
+                                        Visibility="Collapsed" />
+                                    <Border
+                                        x:Name="OreSidebarDivider"
+                                        Margin="0,0,0,6"
+                                        BorderBrush="#313233"
+                                        BorderThickness="0,2,0,2" />
+                                    <StackPanel x:Name="OreSidebarItems" />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

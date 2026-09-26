@@ -1,0 +1,14 @@
+# 上游参考源版本记录
+
+本目录是 OreUI 上游仓库的本地克隆，供移植对照使用，**不入库**。
+重新获取：
+
+    git clone https://github.com/Spectrollay-OreUI/OreUI.git _source
+
+| 项 | 值 |
+| --- | --- |
+| upstream | https://github.com/Spectrollay-OreUI/OreUI.git |
+| branch | main |
+| commit | 8ff5dd0 |
+| snapshot | 2026090601 |
+| note | 本地为压平后的单提交快照，与上游真实提交历史不一致，故不使用 submodule |

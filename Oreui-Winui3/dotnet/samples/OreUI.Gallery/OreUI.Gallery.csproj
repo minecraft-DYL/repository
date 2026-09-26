@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+
+    <!-- WinUI 3，非打包（unpackaged）运行 -->
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <WindowsPackageType>None</WindowsPackageType>
+
+    <!-- 自包含 Windows App SDK：目标机无需预装 WindowsAppRuntime -->
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <SelfContained>true</SelfContained>
+
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <UseRidGraph>true</UseRidGraph>
+
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace>OreUI.Gallery</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260804001" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      字体由 OreUI.WinUI 库自带（Content + PreserveNewest），会一并复制到本应用的
+      输出目录 Assets\OreUI\Fonts\ 下，库里的 FontFamily 用 ms-appx 引用它。
+      宿主应用不需要自己再分发字体。
+    -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OreUI.WinUI\OreUI.WinUI.csproj" />
+  </ItemGroup>
+
+</Project>

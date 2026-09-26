@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OreUI.WinUI">
+
+    <!-- ============================ OreCheckBox ============================ -->
+    <Style TargetType="local:OreCheckBox">
+        <Setter Property="FontFamily" Value="{ThemeResource OreUIFontBodyFamily}" />
+        <Setter Property="FontSize" Value="{ThemeResource OreUIFontSizeBody}" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="Margin" Value="5" />
+        <!-- 同上：OreUI 用白色描边表达聚焦，不用系统焦点矩形 -->
+        <Setter Property="UseSystemFocusVisuals" Value="False" />
+        <Setter Property="FocusVisualPrimaryThickness" Value="0" />
+        <Setter Property="FocusVisualSecondaryThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreCheckBox">
+                    <Grid Background="Transparent">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid Width="20" Height="20" VerticalAlignment="Center">
+                                <Border x:Name="OreFillBorder" BorderThickness="2" />
+                                <Grid Margin="2" IsHitTestVisible="False">
+                                    <Border x:Name="OreSpecularTopLeft" />
+                                    <Border x:Name="OreSpecularBottomRight" />
+                                </Grid>
+                                <!--
+                                    上游用 <img src="check_white.png">，27x27 故意溢出 20px 方块
+                                    （CSS: width:27px;height:27px;position:absolute;left:50%;top:50%;
+                                     transform:translate(-50%,-50%)）。不是 Fluent 的 E73E 字形。
+                                -->
+                                <Image
+                                    x:Name="OreCheckGlyph"
+                                    Width="27"
+                                    Height="27"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    IsHitTestVisible="False"
+                                    Stretch="Uniform"
+                                    Visibility="Collapsed" />
+                            </Grid>
+                            <ContentPresenter
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ========================== OreToggleSwitch ========================== -->
+    <!-- 轨道是「左绿右灰」的硬分界（CSS linear-gradient 50% 突变），滑块 28x28 溢出轨道 -->
+    <Style TargetType="local:OreToggleSwitch">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreToggleSwitch">
+                    <!--
+                        布局盒高度用 28（= 滑块高度），**不要**用上游的 24。
+                        上游 .switch{height:24px} 靠绝对定位让 28px 的滑块上溢 4px（-4..24），
+                        CSS 默认不裁剪所以没事；但在 WinUI 里这个上溢会被裁掉，滑块顶部缺一块。
+                        这里改成把整块装进盒子：根 Grid 28 高，轨道 24 高贴底 => 轨道占 4..28，
+                        滑块占 0..28。**滑块底边与轨道底边齐平、顶部高出轨道 4px** 的相对关系
+                        与上游完全一致，但没有任何元素越界，不会被裁。
+                        水平方向本来就不越界：轨道宽 58，滑块 0..28 / 30..58。
+                    -->
+                    <Grid
+                        Width="58"
+                        Height="28"
+                        Background="Transparent">
+                        <Grid
+                            Width="58"
+                            Height="24"
+                            VerticalAlignment="Bottom">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Border
+                                x:Name="OreSwitchTrackLeft"
+                                Grid.Column="0"
+                                Background="#3C8527" />
+                            <Border
+                                x:Name="OreSwitchTrackRight"
+                                Grid.Column="1"
+                                Background="#8C8D90" />
+                            <Border
+                                x:Name="OreFillBorder"
+                                Grid.ColumnSpan="2"
+                                BorderThickness="2" />
+                            <Grid
+                                Grid.ColumnSpan="2"
+                                Margin="2"
+                                IsHitTestVisible="False">
+                                <Border x:Name="OreSpecularTopLeft" />
+                                <Border x:Name="OreSpecularBottomRight" />
+                            </Grid>
+                        </Grid>
+                        <!--
+                            滑块的坐标基准必须与上游一致。
+                            上游 .switch_slider{position:absolute; left:-2px; top:-6px} 是相对**包含块的
+                            padding box**（2px 边框之内）算的 => 换算成轨道 border box 就是左 0 / 上 -4，
+                            底边正好与轨道底边(24)齐平。
+                            这里删掉 Margin="0,0,0,2"：它让滑块底边比轨道底边高 2px。
+                            垂直对齐用 Bottom，28 高的滑块在 24 高的盒子里自然上溢 4px，与上游一致。
+                        -->
+                        <Grid
+                            x:Name="OreSwitchKnob"
+                            Width="28"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom">
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:Name="OreKnobTransform" X="0" />
+                            </Grid.RenderTransform>
+                            <Border
+                                x:Name="OreKnobFill"
+                                Background="#D0D1D4"
+                                BorderBrush="#1E1E1F"
+                                BorderThickness="2" />
+                            <Grid Margin="2" IsHitTestVisible="False">
+                                <Border
+                                    x:Name="OreKnobSpecularTopLeft"
+                                    BorderBrush="#FFFFFF99"
+                                    BorderThickness="2,2,0,0" />
+                                <Border
+                                    x:Name="OreKnobSpecularBottomRight"
+                                    BorderBrush="#FFFFFF66"
+                                    BorderThickness="0,0,2,6" />
+                                <!--
+                                    CSS 的 box-shadow 是「先写的画在最上层」：
+                                    inset 0 -4px #58585A 写在最前面 => 它压在两道高光之上。
+                                    XAML 里后写的兄弟元素画在上层，所以这条必须放最后，
+                                    否则白色高光会盖住底部厚度，滑块看起来像多加了一道亮边。
+                                -->
+                                <Border
+                                    x:Name="OreKnobShadow"
+                                    Height="4"
+                                    VerticalAlignment="Bottom"
+                                    Background="#58585A" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ============================= OreSlider ============================= -->
+    <Style TargetType="local:OreSlider">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OreSlider">
+                    <Grid Height="30" Background="Transparent">
+                        <Border
+                            x:Name="OreFillBorder"
+                            Height="8"
+                            Margin="6,0"
+                            VerticalAlignment="Center"
+                            BorderThickness="2" />
+                        <Grid
+                            Height="8"
+                            Margin="6,0"
+                            VerticalAlignment="Center"
+                            IsHitTestVisible="False">
+                            <Border x:Name="OreSpecularTopLeft" />
+                            <Border x:Name="OreSpecularBottomRight" />
+                        </Grid>
+                        <Border
+                            x:Name="OreSliderProcess"
+                            Height="8"
+                            Margin="6,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="#3C8527" />
+                        <!--
+                            刻度层必须和滑块共用同一个坐标原点。
+                            这里**不能**加 Margin="6,0"：Canvas 自己的原点会因此右移 6px，
+                            而 BuildSegments 用的是相对控件左边的 InnerLeft(=6 边距 + 2 边框 = 8)，
+                            两边一叠加刻度就整体偏右 6px —— 看起来就是「滑块和刻度对不齐」。
+                            留 Margin=0 让 Canvas 铺满整个控件，刻度与滑块（OreSliderThumb 无 margin）
+                            才在同一坐标系里。
+                        -->
+                        <Canvas
+                            x:Name="OreSegmentLayer"
+                            Height="8"
+                            VerticalAlignment="Center"
+                            IsHitTestVisible="False" />
+                        <Grid
+                            x:Name="OreSliderThumb"
+                            Width="28"
+                            Height="28"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <Grid.RenderTransform>
+                                <TranslateTransform x:Name="OreThumbTransform" />
+                            </Grid.RenderTransform>
+                            <Border
+                                x:Name="OreThumbFill"
+                                Background="#D0D1D4"
+                                BorderBrush="#1E1E1F"
+                                BorderThickness="2" />
+                            <Grid Margin="2" IsHitTestVisible="False">
+                                <Border
+                                    x:Name="OreThumbSpecularTopLeft"
+                                    BorderBrush="#FFFFFF99"
+                                    BorderThickness="2,2,0,0" />
+                                <Border
+                                    x:Name="OreThumbSpecularBottomRight"
+                                    BorderBrush="#FFFFFF66"
+                                    BorderThickness="0,0,2,6" />
+                                <!--
+                                    .slider_slider 的 box-shadow 第一条是 inset 0 -4px #58585A，
+                                    按 CSS 顺序画在最上层；之前漏了这一层，滑块只剩一道白高光，
+                                    看着就像「无缘无故多加了个高亮」。放最后 = 盖住高光。
+                                -->
+                                <Border
+                                    x:Name="OreThumbBottomShadow"
+                                    Height="4"
+                                    VerticalAlignment="Bottom"
+                                    Background="#58585A" />
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

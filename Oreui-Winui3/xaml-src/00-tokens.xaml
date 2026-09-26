@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+    OreUI 设计令牌 —— 自动生成，请勿手工编辑。
+    生成器: tools/gen_tokens.py
+    事实来源: spec/oreui-tokens.json
+    Upstream: https://github.com/Spectrollay-OreUI/OreUI (MIT)
+-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- ==================== 原子色板 (palette) ==================== -->
+
+    <Color x:Key="OreUIGreen10Color">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUIGreen10Brush" Color="#A0E081" />
+    <Color x:Key="OreUIGreen20Color">#86D562</Color>
+    <SolidColorBrush x:Key="OreUIGreen20Brush" Color="#86D562" />
+    <Color x:Key="OreUIGreen30Color">#6CC349</Color>
+    <SolidColorBrush x:Key="OreUIGreen30Brush" Color="#6CC349" />
+    <Color x:Key="OreUIGreen40Color">#52A535</Color>
+    <SolidColorBrush x:Key="OreUIGreen40Brush" Color="#52A535" />
+    <Color x:Key="OreUIGreen50Color">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUIGreen50Brush" Color="#3C8527" />
+    <Color x:Key="OreUIGreen60Color">#2A641C</Color>
+    <SolidColorBrush x:Key="OreUIGreen60Brush" Color="#2A641C" />
+    <Color x:Key="OreUIGreen70Color">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIGreen70Brush" Color="#1D4D13" />
+    <Color x:Key="OreUIGreen80Color">#153A0E</Color>
+    <SolidColorBrush x:Key="OreUIGreen80Brush" Color="#153A0E" />
+    <Color x:Key="OreUIGreen90Color">#112F0B</Color>
+    <SolidColorBrush x:Key="OreUIGreen90Brush" Color="#112F0B" />
+    <Color x:Key="OreUIGreen100Color">#0F2B0A</Color>
+    <SolidColorBrush x:Key="OreUIGreen100Brush" Color="#0F2B0A" />
+
+    <Color x:Key="OreUIRed10Color">#F46D6D</Color>
+    <SolidColorBrush x:Key="OreUIRed10Brush" Color="#F46D6D" />
+    <Color x:Key="OreUIRed20Color">#EA5E5E</Color>
+    <SolidColorBrush x:Key="OreUIRed20Brush" Color="#EA5E5E" />
+    <Color x:Key="OreUIRed30Color">#DF5050</Color>
+    <SolidColorBrush x:Key="OreUIRed30Brush" Color="#DF5050" />
+    <Color x:Key="OreUIRed40Color">#D54242</Color>
+    <SolidColorBrush x:Key="OreUIRed40Brush" Color="#D54242" />
+    <Color x:Key="OreUIRed50Color">#CA3636</Color>
+    <SolidColorBrush x:Key="OreUIRed50Brush" Color="#CA3636" />
+    <Color x:Key="OreUIRed60Color">#C02D2D</Color>
+    <SolidColorBrush x:Key="OreUIRed60Brush" Color="#C02D2D" />
+    <Color x:Key="OreUIRed70Color">#B62525</Color>
+    <SolidColorBrush x:Key="OreUIRed70Brush" Color="#B62525" />
+    <Color x:Key="OreUIRed80Color">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIRed80Brush" Color="#AD1D1D" />
+    <Color x:Key="OreUIRed90Color">#A31616</Color>
+    <SolidColorBrush x:Key="OreUIRed90Brush" Color="#A31616" />
+    <Color x:Key="OreUIRed100Color">#990F0F</Color>
+    <SolidColorBrush x:Key="OreUIRed100Brush" Color="#990F0F" />
+
+    <Color x:Key="OreUIBlue10Color">#8CB3FF</Color>
+    <SolidColorBrush x:Key="OreUIBlue10Brush" Color="#8CB3FF" />
+    <Color x:Key="OreUIBlue20Color">#2E6BE5</Color>
+    <SolidColorBrush x:Key="OreUIBlue20Brush" Color="#2E6BE5" />
+    <Color x:Key="OreUIBlue30Color">#1452CC</Color>
+    <SolidColorBrush x:Key="OreUIBlue30Brush" Color="#1452CC" />
+
+    <Color x:Key="OreUIYellow10Color">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUIYellow10Brush" Color="#FFE866" />
+    <Color x:Key="OreUIYellow20Color">#E5C317</Color>
+    <SolidColorBrush x:Key="OreUIYellow20Brush" Color="#E5C317" />
+    <Color x:Key="OreUIYellow30Color">#8A7500</Color>
+    <SolidColorBrush x:Key="OreUIYellow30Brush" Color="#8A7500" />
+
+    <Color x:Key="OreUIOrange10Color">#FFB366</Color>
+    <SolidColorBrush x:Key="OreUIOrange10Brush" Color="#FFB366" />
+    <Color x:Key="OreUIOrange20Color">#D3791F</Color>
+    <SolidColorBrush x:Key="OreUIOrange20Brush" Color="#D3791F" />
+    <Color x:Key="OreUIOrange30Color">#A65B11</Color>
+    <SolidColorBrush x:Key="OreUIOrange30Brush" Color="#A65B11" />
+
+    <Color x:Key="OreUIDeepBlue10Color">#AC90F3</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue10Brush" Color="#AC90F3" />
+    <Color x:Key="OreUIDeepBlue20Color">#9471E0</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue20Brush" Color="#9471E0" />
+    <Color x:Key="OreUIDeepBlue40Color">#7855E8</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue40Brush" Color="#7855E8" />
+    <Color x:Key="OreUIDeepBlue50Color">#7345E5</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue50Brush" Color="#7345E5" />
+    <Color x:Key="OreUIDeepBlue60Color">#5D2CC6</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue60Brush" Color="#5D2CC6" />
+    <Color x:Key="OreUIDeepBlue70Color">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue70Brush" Color="#4A1CAC" />
+    <Color x:Key="OreUIDeepBlue100Color">#050029</Color>
+    <SolidColorBrush x:Key="OreUIDeepBlue100Brush" Color="#050029" />
+
+    <Color x:Key="OreUIGrayWhiteColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIGrayWhiteBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIGray10Color">#F4F6F9</Color>
+    <SolidColorBrush x:Key="OreUIGray10Brush" Color="#F4F6F9" />
+    <Color x:Key="OreUIGray20Color">#E6E8EB</Color>
+    <SolidColorBrush x:Key="OreUIGray20Brush" Color="#E6E8EB" />
+    <Color x:Key="OreUIGray30Color">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUIGray30Brush" Color="#D0D1D4" />
+    <Color x:Key="OreUIGray40Color">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUIGray40Brush" Color="#B1B2B5" />
+    <Color x:Key="OreUIGray50Color">#8D8D90</Color>
+    <SolidColorBrush x:Key="OreUIGray50Brush" Color="#8D8D90" />
+    <Color x:Key="OreUIGray60Color">#58585A</Color>
+    <SolidColorBrush x:Key="OreUIGray60Brush" Color="#58585A" />
+    <Color x:Key="OreUIGray70Color">#48494A</Color>
+    <SolidColorBrush x:Key="OreUIGray70Brush" Color="#48494A" />
+    <Color x:Key="OreUIGray80Color">#313233</Color>
+    <SolidColorBrush x:Key="OreUIGray80Brush" Color="#313233" />
+    <Color x:Key="OreUIGray90Color">#242425</Color>
+    <SolidColorBrush x:Key="OreUIGray90Brush" Color="#242425" />
+    <Color x:Key="OreUIGray100Color">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIGray100Brush" Color="#1E1E1F" />
+    <Color x:Key="OreUIGrayBlackColor">#000000</Color>
+    <SolidColorBrush x:Key="OreUIGrayBlackBrush" Color="#000000" />
+
+    <Color x:Key="OreUIBlackOpacity10Color">#1A000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity10Brush" Color="#1A000000" />
+    <Color x:Key="OreUIBlackOpacity20Color">#33000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity20Brush" Color="#33000000" />
+    <Color x:Key="OreUIBlackOpacity30Color">#4D000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity30Brush" Color="#4D000000" />
+    <Color x:Key="OreUIBlackOpacity40Color">#66000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity40Brush" Color="#66000000" />
+    <Color x:Key="OreUIBlackOpacity50Color">#80000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity50Brush" Color="#80000000" />
+    <Color x:Key="OreUIBlackOpacity60Color">#99000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity60Brush" Color="#99000000" />
+    <Color x:Key="OreUIBlackOpacity70Color">#B3000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity70Brush" Color="#B3000000" />
+    <Color x:Key="OreUIBlackOpacity80Color">#CC000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity80Brush" Color="#CC000000" />
+    <Color x:Key="OreUIBlackOpacity90Color">#E6000000</Color>
+    <SolidColorBrush x:Key="OreUIBlackOpacity90Brush" Color="#E6000000" />
+
+    <Color x:Key="OreUIWhiteOpacity10Color">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity10Brush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity20Color">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity20Brush" Color="#33FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity30Color">#4DFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity30Brush" Color="#4DFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity40Color">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity40Brush" Color="#66FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity50Color">#80FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity50Brush" Color="#80FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity60Color">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity60Brush" Color="#99FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity70Color">#B3FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity70Brush" Color="#B3FFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity80Color">#CCFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity80Brush" Color="#CCFFFFFF" />
+    <Color x:Key="OreUIWhiteOpacity90Color">#E6FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIWhiteOpacity90Brush" Color="#E6FFFFFF" />
+
+    <!-- ==================== 语义色 (semantic) ==================== -->
+
+    <Color x:Key="OreUINeutralBackgroundColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralBackgroundHoveredColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundHoveredBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutralBackgroundPressedColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundPressedBrush" Color="#313233" />
+    <Color x:Key="OreUINeutralShadowColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutralShadowBrush" Color="#313233" />
+    <Color x:Key="OreUINeutralTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralTextDimmerColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDimmerBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralTextDimmestColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDimmestBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralIconDimmerColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmerBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralIconDimmestColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmestBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutralBorderFocusedColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderFocusedBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUINeutralBackgroundDisabledColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutralBackgroundDisabledBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutralShadowDisabledColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutralShadowDisabledBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutralTextDisabledColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralTextDisabledBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralIconDisabledColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDisabledBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutralIconDimmerDisabledColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutralIconDimmerDisabledBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutralBorderDisabledColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutralBorderDisabledBrush" Color="#8C8D90" />
+
+    <Color x:Key="OreUINeutral20BackgroundColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUINeutral20BackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral20BackgroundPressedColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BackgroundPressedBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral20ShadowColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral20ShadowBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutral20TextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20TextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutral20IconColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20IconBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINeutral20BorderFocusedColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral20BorderFocusedBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUINeutral50BackgroundColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutral50BackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUINeutral50BackgroundPressedColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral50BackgroundPressedBrush" Color="#58585A" />
+
+    <Color x:Key="OreUINeutral60BackgroundColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundBrush" Color="#58585A" />
+    <Color x:Key="OreUINeutral60BackgroundHoveredColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundHoveredBrush" Color="#8C8D90" />
+    <Color x:Key="OreUINeutral60BackgroundPressedColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BackgroundPressedBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral60BorderTintColor">#8C8D90</Color>
+    <SolidColorBrush x:Key="OreUINeutral60BorderTintBrush" Color="#8C8D90" />
+
+    <Color x:Key="OreUINeutral80BackgroundColor">#313233</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundBrush" Color="#313233" />
+    <Color x:Key="OreUINeutral80BackgroundHoveredColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundHoveredBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral80BackgroundPressedColor">#242425</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundPressedBrush" Color="#242425" />
+    <Color x:Key="OreUINeutral80BackgroundSelectedColor">#48494A</Color>
+    <SolidColorBrush x:Key="OreUINeutral80BackgroundSelectedBrush" Color="#48494A" />
+    <Color x:Key="OreUINeutral80ShadowColor">#242425</Color>
+    <SolidColorBrush x:Key="OreUINeutral80ShadowBrush" Color="#242425" />
+
+    <Color x:Key="OreUINeutral100BackgroundColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINeutral100BackgroundBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIPrimaryBackgroundColor">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundBrush" Color="#3C8527" />
+    <Color x:Key="OreUIPrimaryBackgroundHoveredColor">#2A641C</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundHoveredBrush" Color="#2A641C" />
+    <Color x:Key="OreUIPrimaryBackgroundPressedColor">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBackgroundPressedBrush" Color="#1D4D13" />
+    <Color x:Key="OreUIPrimaryShadowColor">#1D4D13</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryShadowBrush" Color="#1D4D13" />
+    <Color x:Key="OreUIPrimaryTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIPrimaryIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIPrimaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIPrimaryTintBackgroundColor">#6CC349</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintBackgroundBrush" Color="#6CC349" />
+    <Color x:Key="OreUIPrimaryTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIPrimaryTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIPrimaryTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUISecondaryBackgroundColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUISecondaryBackgroundHoveredColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundHoveredBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUISecondaryBackgroundPressedColor">#B1B2B5</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBackgroundPressedBrush" Color="#B1B2B5" />
+    <Color x:Key="OreUISecondaryShadowColor">#58585A</Color>
+    <SolidColorBrush x:Key="OreUISecondaryShadowBrush" Color="#58585A" />
+    <Color x:Key="OreUISecondaryTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISecondaryIconColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryIconBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISecondaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISecondaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUISuccessBackgroundColor">#3C8527</Color>
+    <SolidColorBrush x:Key="OreUISuccessBackgroundBrush" Color="#3C8527" />
+    <Color x:Key="OreUISuccessTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISuccessTextBrush" Color="#FFFFFF" />
+
+    <Color x:Key="OreUISuccessTintBackgroundColor">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintBackgroundBrush" Color="#A0E081" />
+    <Color x:Key="OreUISuccessTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUISuccessTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUISuccessTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIInformativeBackgroundColor">#2E6BE5</Color>
+    <SolidColorBrush x:Key="OreUIInformativeBackgroundBrush" Color="#2E6BE5" />
+    <Color x:Key="OreUIInformativeTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIInformativeBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIInformativeTintBackgroundColor">#8CB3FF</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintBackgroundBrush" Color="#8CB3FF" />
+    <Color x:Key="OreUIInformativeTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIInformativeTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIInformativeTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDestructiveBackgroundColor">#CA3636</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundBrush" Color="#CA3636" />
+    <Color x:Key="OreUIDestructiveBackgroundHoveredColor">#C02D2D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundHoveredBrush" Color="#C02D2D" />
+    <Color x:Key="OreUIDestructiveBackgroundPressedColor">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBackgroundPressedBrush" Color="#AD1D1D" />
+    <Color x:Key="OreUIDestructiveShadowColor">#AD1D1D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveShadowBrush" Color="#AD1D1D" />
+    <Color x:Key="OreUIDestructiveTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIDestructiveIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIDestructiveBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDestructiveTintBackgroundColor">#F46D6D</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintBackgroundBrush" Color="#F46D6D" />
+    <Color x:Key="OreUIDestructiveTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIDestructiveTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIDestructiveTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUINoticeBackgroundColor">#D3791F</Color>
+    <SolidColorBrush x:Key="OreUINoticeBackgroundBrush" Color="#D3791F" />
+
+    <Color x:Key="OreUINoticeTintBackgroundColor">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintBackgroundBrush" Color="#FFE866" />
+    <Color x:Key="OreUINoticeTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUINoticeTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUINoticeTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsPrimaryBackgroundColor">#7345E5</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundBrush" Color="#7345E5" />
+    <Color x:Key="OreUIRealmsPrimaryBackgroundHoveredColor">#5D2CC6</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundHoveredBrush" Color="#5D2CC6" />
+    <Color x:Key="OreUIRealmsPrimaryBackgroundPressedColor">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBackgroundPressedBrush" Color="#4A1CAC" />
+    <Color x:Key="OreUIRealmsPrimaryShadowColor">#4A1CAC</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryShadowBrush" Color="#4A1CAC" />
+    <Color x:Key="OreUIRealmsPrimaryTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsPrimaryIconColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryIconBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsPrimaryBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsPrimaryTintBackgroundColor">#AC90F3</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintBackgroundBrush" Color="#AC90F3" />
+    <Color x:Key="OreUIRealmsPrimaryTintTextColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintTextBrush" Color="#1E1E1F" />
+    <Color x:Key="OreUIRealmsPrimaryTintBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsPrimaryTintBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIRealmsInformativeBackgroundColor">#050029</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeBackgroundBrush" Color="#050029" />
+    <Color x:Key="OreUIRealmsInformativeTextColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeTextBrush" Color="#FFFFFF" />
+    <Color x:Key="OreUIRealmsInformativeBorderColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUIRealmsInformativeBorderBrush" Color="#1E1E1F" />
+
+    <Color x:Key="OreUIDataviz01Color">#42CCCC</Color>
+    <SolidColorBrush x:Key="OreUIDataviz01Brush" Color="#42CCCC" />
+    <Color x:Key="OreUIDataviz02Color">#9471E0</Color>
+    <SolidColorBrush x:Key="OreUIDataviz02Brush" Color="#9471E0" />
+    <Color x:Key="OreUIDataviz03Color">#FFB366</Color>
+    <SolidColorBrush x:Key="OreUIDataviz03Brush" Color="#FFB366" />
+    <Color x:Key="OreUIDataviz04Color">#89DEF9</Color>
+    <SolidColorBrush x:Key="OreUIDataviz04Brush" Color="#89DEF9" />
+    <Color x:Key="OreUIDataviz05Color">#A0E081</Color>
+    <SolidColorBrush x:Key="OreUIDataviz05Brush" Color="#A0E081" />
+    <Color x:Key="OreUIDataviz06Color">#F064B8</Color>
+    <SolidColorBrush x:Key="OreUIDataviz06Brush" Color="#F064B8" />
+    <Color x:Key="OreUIDataviz07Color">#FFE866</Color>
+    <SolidColorBrush x:Key="OreUIDataviz07Brush" Color="#FFE866" />
+    <Color x:Key="OreUIDatavizLinesColor">#D0D1D4</Color>
+    <SolidColorBrush x:Key="OreUIDatavizLinesBrush" Color="#D0D1D4" />
+    <Color x:Key="OreUICanvasBackgroundColor">#1E1E1F</Color>
+    <SolidColorBrush x:Key="OreUICanvasBackgroundBrush" Color="#1E1E1F" />
+
+    <!-- ==================== 立体效果 (effects: specular / bevel) ==================== -->
+    <Color x:Key="OreUISpecularDefaultTopLeftColor">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularDefaultTopLeftBrush" Color="#99FFFFFF" />
+    <Color x:Key="OreUISpecularDefaultBottomRightColor">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularDefaultBottomRightBrush" Color="#66FFFFFF" />
+    <Color x:Key="OreUISpecularTopLeftColor">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopLeftBrush" Color="#33FFFFFF" />
+    <Color x:Key="OreUISpecularBottomRightColor">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularBottomRightBrush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUISpecularTopBottomTopColor">#33FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopBottomTopBrush" Color="#33FFFFFF" />
+    <Color x:Key="OreUISpecularTopBottomBottomColor">#1AFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUISpecularTopBottomBottomBrush" Color="#1AFFFFFF" />
+    <Color x:Key="OreUIBevelDefaultTopLeftColor">#CCFFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelDefaultTopLeftBrush" Color="#CCFFFFFF" />
+    <Color x:Key="OreUIBevelDefaultBottomRightColor">#99FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelDefaultBottomRightBrush" Color="#99FFFFFF" />
+    <Color x:Key="OreUIBevelTopBottomTopColor">#80FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelTopBottomTopBrush" Color="#80FFFFFF" />
+    <Color x:Key="OreUIBevelTopBottomBottomColor">#66FFFFFF</Color>
+    <SolidColorBrush x:Key="OreUIBevelTopBottomBottomBrush" Color="#66FFFFFF" />
+
+    <!-- ==================== 字体族 (typography.families) ==================== -->
+    <FontFamily x:Key="OreUIFontMcTen">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Ten.otf#Minecraft Ten v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcSeven">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Seven.otf#Minecraft Seven v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcFive">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Five.otf#Minecraft Five v2</FontFamily>
+    <FontFamily x:Key="OreUIFontMcFiveBold">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Five-Bold.otf#Minecraft Five v2</FontFamily>
+    <FontFamily x:Key="OreUIFontNoto">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoBold">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoItalic">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Italic.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontNotoBoldItalic">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-BoldItalic.ttf#Noto Sans</FontFamily>
+
+    <FontFamily x:Key="OreUIFontFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontTitleFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Ten.otf#Minecraft Ten v2</FontFamily>
+    <FontFamily x:Key="OreUIFontArticleTitleFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/Minecraft-Seven.otf#Minecraft Seven v2</FontFamily>
+    <FontFamily x:Key="OreUIFontBodyFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans-Bold.ttf#Noto Sans</FontFamily>
+    <FontFamily x:Key="OreUIFontRegularFamily">ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/NotoSans.ttf#Noto Sans</FontFamily>
+
+    <x:Double x:Key="OreUIFontSizePageTitle">24</x:Double>
+    <x:Double x:Key="OreUIFontSizeSidebarTitle">20</x:Double>
+    <x:Double x:Key="OreUIFontSizeArticleTitle">21</x:Double>
+    <x:Double x:Key="OreUIFontSizeArticleSubtitle">18</x:Double>
+    <x:Double x:Key="OreUIFontSizeModalTitle">18</x:Double>
+    <x:Double x:Key="OreUIFontSizeShowBlockTitle">17</x:Double>
+    <x:Double x:Key="OreUIFontSizeListTitle">17</x:Double>
+    <x:Double x:Key="OreUIFontSizeBody">16</x:Double>
+    <x:Double x:Key="OreUIFontSizeDropdown">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeSidebarDetail">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeHint">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeShowBlockDescription">14</x:Double>
+    <x:Double x:Key="OreUIFontSizeTag">12</x:Double>
+    <x:Double x:Key="OreUIFontSizeTooltip">12</x:Double>
+    <x:Double x:Key="OreUIFontSizePageInfo">12</x:Double>
+
+    <x:Double x:Key="OreUILineHeightFactor">1.35</x:Double>
+
+    <!-- ==================== 组件尺寸 (component metrics) ==================== -->
+
+    <x:Double x:Key="OreUIWindowMinWidth">330</x:Double>
+
+    <x:Double x:Key="OreUIButtonHeight">40</x:Double>
+    <x:Double x:Key="OreUIButtonMargin">6</x:Double>
+    <x:Double x:Key="OreUIButtonActiveOffset">4</x:Double>
+    <x:Double x:Key="OreUIButtonPaddingBottom">6</x:Double>
+    <x:Double x:Key="OreUIButtonIconSize">14</x:Double>
+    <x:Double x:Key="OreUIButtonTooltipTop">-30</x:Double>
+    <x:Double x:Key="OreUIButtonExtraSmall">100</x:Double>
+    <x:Double x:Key="OreUIButtonSmall">130</x:Double>
+    <x:Double x:Key="OreUIButtonMiddle">200</x:Double>
+    <x:Double x:Key="OreUIButtonLarge">272</x:Double>
+    <x:Double x:Key="OreUIButtonSidebar">140</x:Double>
+    <x:Double x:Key="OreUIButtonBorderWidth">2</x:Double>
+
+    <x:Double x:Key="OreUICheckboxSize">20</x:Double>
+    <x:Double x:Key="OreUICheckboxBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUICheckboxCheckmarkSize">27</x:Double>
+    <x:Double x:Key="OreUICheckboxMargin">5</x:Double>
+
+    <x:Double x:Key="OreUISwitchWidth">58</x:Double>
+    <x:Double x:Key="OreUISwitchHeight">24</x:Double>
+    <x:Double x:Key="OreUISwitchSliderSize">28</x:Double>
+    <x:Double x:Key="OreUISwitchSliderTop">-6</x:Double>
+    <x:Double x:Key="OreUISwitchSliderLeftOff">-2</x:Double>
+    <x:Double x:Key="OreUISwitchSliderLeftOn">28</x:Double>
+    <x:Double x:Key="OreUISwitchBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUISwitchBounceMs">175</x:Double>
+
+    <x:Double x:Key="OreUISliderTrackHeight">8</x:Double>
+    <x:Double x:Key="OreUISliderThumbSize">28</x:Double>
+    <x:Double x:Key="OreUISliderBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUISliderContentHeight">30</x:Double>
+    <x:Double x:Key="OreUISliderSegmentWidth">2</x:Double>
+
+    <x:Double x:Key="OreUITextFieldMinHeight">40</x:Double>
+    <x:Double x:Key="OreUITextFieldBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingTop">10</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingRight">10</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingBottom">11</x:Double>
+    <x:Double x:Key="OreUITextFieldPaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUITextFieldBottomShadow">4</x:Double>
+    <x:Double x:Key="OreUITextFieldHintTop">11</x:Double>
+    <x:Double x:Key="OreUITextFieldHintLeft">10</x:Double>
+    <x:Double x:Key="OreUITextFieldFocusUnderlineHeight">2</x:Double>
+
+    <x:Double x:Key="OreUIDropdownHeight">40</x:Double>
+    <x:Double x:Key="OreUIDropdownFontSize">14</x:Double>
+    <x:Double x:Key="OreUIDropdownMargin">6</x:Double>
+    <x:Double x:Key="OreUIDropdownBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIDropdownArrowWidth">24</x:Double>
+    <x:Double x:Key="OreUIDropdownCheckmarkWidth">24</x:Double>
+    <x:Double x:Key="OreUIDropdownOptionHeight">40</x:Double>
+
+    <x:Double x:Key="OreUITagFontSize">12</x:Double>
+    <x:Double x:Key="OreUITagMarginRight">5</x:Double>
+    <x:Double x:Key="OreUITagPaddingX">2</x:Double>
+
+    <x:Double x:Key="OreUIBadgeSize">6</x:Double>
+    <x:Double x:Key="OreUIBadgeMarginRight">6</x:Double>
+
+    <x:Double x:Key="OreUIDividerThickness">2</x:Double>
+    <x:Double x:Key="OreUIDividerMarginY">6</x:Double>
+    <x:Double x:Key="OreUIDividerBoxThickness">4</x:Double>
+    <x:Double x:Key="OreUIDividerLineThickness">2</x:Double>
+    <x:Double x:Key="OreUIDividerLineMarginY">1</x:Double>
+    <x:Double x:Key="OreUIDividerVerticalWidth">2</x:Double>
+    <x:Double x:Key="OreUIDividerVerticalMarginX">6</x:Double>
+
+    <x:Double x:Key="OreUIListBulletSize">6</x:Double>
+    <x:Double x:Key="OreUIListLevelIndent">16</x:Double>
+    <x:Double x:Key="OreUIListMarginY">10</x:Double>
+
+    <x:Double x:Key="OreUISidebarWidth">240</x:Double>
+    <x:Double x:Key="OreUISidebarScrollerWidth">238</x:Double>
+    <x:Double x:Key="OreUISidebarItemHeight">40</x:Double>
+    <x:Double x:Key="OreUISidebarItemPaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUISidebarTitleMinHeight">30</x:Double>
+    <x:Double x:Key="OreUISidebarDetailHeight">24</x:Double>
+    <x:Double x:Key="OreUISidebarDetailMarginBottom">24</x:Double>
+    <x:Double x:Key="OreUISidebarDividerThickness">2</x:Double>
+    <x:Double x:Key="OreUISidebarRightBorderThickness">2</x:Double>
+    <x:Double x:Key="OreUISidebarBreakpointWide">1200</x:Double>
+    <x:Double x:Key="OreUISidebarTransitionMs">600</x:Double>
+
+    <x:Double x:Key="OreUIScrollbarPrimaryWidth">22</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryTrackWidth">6</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbWidth">12</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbMinHeight">35</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryTrackInset">8</x:Double>
+    <x:Double x:Key="OreUIScrollbarPrimaryThumbBorder">2</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryWidth">18</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryTrackWidth">6</x:Double>
+    <x:Double x:Key="OreUIScrollbarSecondaryThumbWidth">10</x:Double>
+    <x:Double x:Key="OreUIScrollbarFadeMs">1000</x:Double>
+
+    <x:Double x:Key="OreUIModalMinWidth">320</x:Double>
+    <x:Double x:Key="OreUIModalMaxWidth">600</x:Double>
+    <x:Double x:Key="OreUIModalTitleHeight">40</x:Double>
+    <x:Double x:Key="OreUIModalTitleFontSize">18</x:Double>
+    <x:Double x:Key="OreUIModalContentMaxHeight">450</x:Double>
+    <x:Double x:Key="OreUIModalContentMinHeight">60</x:Double>
+    <x:Double x:Key="OreUIModalCloseButtonWidth">32</x:Double>
+    <x:Double x:Key="OreUIModalCloseIconSize">20</x:Double>
+    <x:Double x:Key="OreUIModalBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIModalButtonAreaPaddingY">2</x:Double>
+
+    <x:Double x:Key="OreUIPageTitleMinHeight">70</x:Double>
+    <x:Double x:Key="OreUIPageTitleMarginY">10</x:Double>
+    <x:Double x:Key="OreUIPageTitleMarginX">20</x:Double>
+    <x:Double x:Key="OreUIPageTitleBorderBottom">2</x:Double>
+
+    <x:Double x:Key="OreUIMainBlockMinHeight">66</x:Double>
+    <x:Double x:Key="OreUIMainBlockPaddingY">8</x:Double>
+    <x:Double x:Key="OreUIMainBlockBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIMainBlockMarginX">20</x:Double>
+    <x:Double x:Key="OreUIMainBlockSpacing">20</x:Double>
+
+    <x:Double x:Key="OreUIMainDisplayMinHeight">60</x:Double>
+    <x:Double x:Key="OreUIMainDisplayPaddingY">8</x:Double>
+    <x:Double x:Key="OreUIMainDisplayPaddingX">16</x:Double>
+
+    <x:Double x:Key="OreUIBannerMarginY">10</x:Double>
+    <x:Double x:Key="OreUIBannerPadding">10</x:Double>
+    <x:Double x:Key="OreUIBannerMinHeight">30</x:Double>
+    <x:Double x:Key="OreUIBannerMarginX">20</x:Double>
+
+    <x:Double x:Key="OreUIPopBottomOffset">40</x:Double>
+    <x:Double x:Key="OreUIPopMaxWidthRatio">0.9</x:Double>
+    <x:Double x:Key="OreUIPopMaxWidth">500</x:Double>
+    <x:Double x:Key="OreUIPopLifetimeMs">3000</x:Double>
+    <x:Double x:Key="OreUIPopFadeMs">300</x:Double>
+    <x:Double x:Key="OreUIPopMaxVisible">5</x:Double>
+    <x:Double x:Key="OreUIPopPaddingY">10</x:Double>
+    <x:Double x:Key="OreUIPopPaddingX">20</x:Double>
+    <x:Double x:Key="OreUIPopMarginY">6</x:Double>
+
+    <x:Double x:Key="OreUILoadingSpinnerSize">60</x:Double>
+    <x:Double x:Key="OreUILoadingTextSize">24</x:Double>
+    <x:Double x:Key="OreUILoadingErrorImageHeight">160</x:Double>
+    <x:Double x:Key="OreUILoadingFadeMs">800</x:Double>
+    <x:Double x:Key="OreUILoadingHoldMs">700</x:Double>
+
+    <x:Double x:Key="OreUIShowBlockBorderWidth">2</x:Double>
+    <x:Double x:Key="OreUIShowBlockPaddingY">5</x:Double>
+    <x:Double x:Key="OreUIShowBlockPaddingX">17</x:Double>
+    <x:Double x:Key="OreUIShowBlockMargin">6</x:Double>
+    <x:Double x:Key="OreUIShowBlockTitleSize">17</x:Double>
+    <x:Double x:Key="OreUIShowBlockDescriptionSize">14</x:Double>
+    <x:Double x:Key="OreUIShowBlockTitleIconSize">20</x:Double>
+
+    <x:Double x:Key="OreUIArticleMinWidth">270</x:Double>
+    <x:Double x:Key="OreUIArticleWidthRatio">0.9</x:Double>
+    <x:Double x:Key="OreUIArticleNoteBorderLeft">6</x:Double>
+    <x:Double x:Key="OreUIArticleNotePadding">10</x:Double>
+    <x:Double x:Key="OreUIArticleListTitleBorderLeft">6</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingTop">4</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingRight">0</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingBottom">4</x:Double>
+    <x:Double x:Key="OreUIArticleListTitlePaddingLeft">10</x:Double>
+    <x:Double x:Key="OreUIArticleTitleMargin">15</x:Double>
+    <x:Double x:Key="OreUIArticleDateMargin">10</x:Double>
+
+</ResourceDictionary>

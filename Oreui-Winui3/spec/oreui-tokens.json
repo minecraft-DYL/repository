@@ -1,0 +1,199 @@
+{
+  "$comment": "OreUI 设计令牌单一事实来源 (single source of truth)。从 _source/src/components/design/colors/style.css、typography/style.css、components/controls/button/style.css、containers/sidebar/style.css 与 styles/oreui.css 提取整理。.NET (OreUI.WinUI) 与 Python (oreui) 两端均以此为准。",
+  "meta": {
+    "upstream": "https://github.com/Spectrollay-OreUI/OreUI",
+    "license": "MIT",
+    "tokenVersion": "1.0.0",
+    "baseUnit": 2
+  },
+
+  "palette": {
+    "green":    { "10": "#A0E081", "20": "#86D562", "30": "#6CC349", "40": "#52A535", "50": "#3C8527", "60": "#2A641C", "70": "#1D4D13", "80": "#153A0E", "90": "#112F0B", "100": "#0F2B0A" },
+    "red":      { "10": "#F46D6D", "20": "#EA5E5E", "30": "#DF5050", "40": "#D54242", "50": "#CA3636", "60": "#C02D2D", "70": "#B62525", "80": "#AD1D1D", "90": "#A31616", "100": "#990F0F" },
+    "blue":     { "10": "#8CB3FF", "20": "#2E6BE5", "30": "#1452CC" },
+    "yellow":   { "10": "#FFE866", "20": "#E5C317", "30": "#8A7500" },
+    "orange":   { "10": "#FFB366", "20": "#D3791F", "30": "#A65B11" },
+    "deepBlue": { "10": "#AC90F3", "20": "#9471E0", "40": "#7855E8", "50": "#7345E5", "60": "#5D2CC6", "70": "#4A1CAC", "100": "#050029" },
+    "gray": {
+      "white": "#FFFFFF", "10": "#F4F6F9", "20": "#E6E8EB", "30": "#D0D1D4", "40": "#B1B2B5",
+      "50": "#8D8D90", "60": "#58585A", "70": "#48494A", "80": "#313233", "90": "#242425",
+      "100": "#1E1E1F", "black": "#000000"
+    },
+    "blackOpacity": { "10": "#0000001A", "20": "#00000033", "30": "#0000004D", "40": "#00000066", "50": "#00000080", "60": "#00000099", "70": "#000000B3", "80": "#000000CC", "90": "#000000E6" },
+    "whiteOpacity": { "10": "#FFFFFF1A", "20": "#FFFFFF33", "30": "#FFFFFF4D", "40": "#FFFFFF66", "50": "#FFFFFF80", "60": "#FFFFFF99", "70": "#FFFFFFB3", "80": "#FFFFFFCC", "90": "#FFFFFFE6" }
+  },
+
+  "semantic": {
+    "neutral": {
+      "background": "#48494A", "backgroundHovered": "#58585A", "backgroundPressed": "#313233",
+      "shadow": "#313233", "text": "#FFFFFF", "textDimmer": "#D0D1D4", "textDimmest": "#B1B2B5",
+      "icon": "#FFFFFF", "iconDimmer": "#D0D1D4", "iconDimmest": "#B1B2B5",
+      "border": "#1E1E1F", "borderFocused": "#FFFFFF",
+      "backgroundDisabled": "#D0D1D4", "shadowDisabled": "#B1B2B5", "textDisabled": "#48494A",
+      "iconDisabled": "#48494A", "iconDimmerDisabled": "#8C8D90", "borderDisabled": "#8C8D90"
+    },
+    "neutral20": { "background": "#D0D1D4", "backgroundHovered": "#B1B2B5", "backgroundPressed": "#B1B2B5", "shadow": "#58585A", "text": "#1E1E1F", "icon": "#1E1E1F", "borderFocused": "#1E1E1F" },
+    "neutral50": { "background": "#8C8D90", "backgroundHovered": "#B1B2B5", "backgroundPressed": "#58585A" },
+    "neutral60": { "background": "#58585A", "backgroundHovered": "#8C8D90", "backgroundPressed": "#48494A", "borderTint": "#8C8D90" },
+    "neutral80": { "background": "#313233", "backgroundHovered": "#48494A", "backgroundPressed": "#242425", "backgroundSelected": "#48494A", "shadow": "#242425" },
+    "neutral100": { "background": "#1E1E1F" },
+
+    "primary": { "background": "#3C8527", "backgroundHovered": "#2A641C", "backgroundPressed": "#1D4D13", "shadow": "#1D4D13", "text": "#FFFFFF", "icon": "#FFFFFF", "border": "#1E1E1F" },
+    "primaryTint": { "background": "#6CC349", "text": "#1E1E1F", "border": "#1E1E1F" },
+    "secondary": { "background": "#D0D1D4", "backgroundHovered": "#B1B2B5", "backgroundPressed": "#B1B2B5", "shadow": "#58585A", "text": "#1E1E1F", "icon": "#1E1E1F", "border": "#1E1E1F" },
+
+    "success": { "background": "#3C8527", "text": "#FFFFFF" },
+    "successTint": { "background": "#A0E081", "text": "#1E1E1F", "border": "#1E1E1F" },
+    "informative": { "background": "#2E6BE5", "text": "#FFFFFF", "border": "#1E1E1F" },
+    "informativeTint": { "background": "#8CB3FF", "text": "#1E1E1F", "border": "#1E1E1F" },
+    "destructive": { "background": "#CA3636", "backgroundHovered": "#C02D2D", "backgroundPressed": "#AD1D1D", "shadow": "#AD1D1D", "text": "#FFFFFF", "icon": "#FFFFFF", "border": "#1E1E1F" },
+    "destructiveTint": { "background": "#F46D6D", "text": "#1E1E1F", "border": "#1E1E1F" },
+    "notice": { "background": "#D3791F" },
+    "noticeTint": { "background": "#FFE866", "text": "#1E1E1F", "border": "#1E1E1F" },
+
+    "realmsPrimary": { "background": "#7345E5", "backgroundHovered": "#5D2CC6", "backgroundPressed": "#4A1CAC", "shadow": "#4A1CAC", "text": "#FFFFFF", "icon": "#FFFFFF", "border": "#1E1E1F" },
+    "realmsPrimaryTint": { "background": "#AC90F3", "text": "#1E1E1F", "border": "#1E1E1F" },
+    "realmsInformative": { "background": "#050029", "text": "#FFFFFF", "border": "#1E1E1F" },
+
+    "dataviz": ["#42CCCC", "#9471E0", "#FFB366", "#89DEF9", "#A0E081", "#F064B8", "#FFE866"],
+    "datavizLines": "#D0D1D4",
+
+    "boxBorderTop": "gray.60",
+    "boxBorderLeftBottomRight": "gray.80",
+    "sidebarBackground": "#313233",
+    "sidebarDividerTop": "black",
+    "sidebarDividerBottom": "gray.70",
+    "overlayBackground": "#000000B3"
+  },
+
+  "effects": {
+    "$comment": "OreUI 立体感来自内阴影 (inset box-shadow) 的镜面高光(specular)与斜面(bevel)。桌面端以 Border 描边 + 多条 Insets 线绘制模拟。",
+    "specularDefaultTopLeft": "#FFFFFF99",
+    "specularDefaultBottomRight": "#FFFFFF66",
+    "specularTopLeft": "#FFFFFF33",
+    "specularBottomRight": "#FFFFFF1A",
+    "specularTopBottomTop": "#FFFFFF33",
+    "specularTopBottomBottom": "#FFFFFF1A",
+    "bevelDefaultTopLeft": "#FFFFFFCC",
+    "bevelDefaultBottomRight": "#FFFFFF99",
+    "bevelTopBottomTop": "#FFFFFF80",
+    "bevelTopBottomBottom": "#FFFFFF66"
+  },
+
+  "typography": {
+    "fontAssetRoot": "OreUI.WinUI/Assets/OreUI/Fonts/",
+    "families": {
+      "mcTen": { "css": "Minecraft Ten", "file": "Minecraft-Ten.otf", "internal": "Minecraft Ten v2" },
+      "mcSeven": { "css": "Minecraft Seven", "file": "Minecraft-Seven.otf", "internal": "Minecraft Seven v2" },
+      "mcFive": { "css": "Minecraft Five", "file": "Minecraft-Five.otf", "internal": "Minecraft Five v2" },
+      "mcFiveBold": { "css": "Minecraft Five Bold", "file": "Minecraft-Five-Bold.otf", "internal": "Minecraft Five v2" },
+      "noto": { "css": "NotoSans", "file": "NotoSans.ttf", "internal": "Noto Sans" },
+      "notoBold": { "css": "NotoSans Bold", "file": "NotoSans-Bold.ttf", "internal": "Noto Sans" },
+      "notoItalic": { "css": "NotoSans Italic", "file": "NotoSans-Italic.ttf", "internal": "Noto Sans" },
+      "notoBoldItalic": { "css": "NotoSans BoldItalic", "file": "NotoSans-BoldItalic.ttf", "internal": "Noto Sans" }
+    },
+    "defaultFamily": "notoBold",
+    "titleFamily": "mcTen",
+    "articleTitleFamily": "mcSeven",
+    "sizes": {
+      "pageTitle": 24,
+      "sidebarTitle": 20,
+      "articleTitle": 21,
+      "articleSubtitle": 18,
+      "modalTitle": 18,
+      "showBlockTitle": 17,
+      "listTitle": 17,
+      "body": 16,
+      "dropdown": 14,
+      "sidebarDetail": 14,
+      "hint": 14,
+      "showBlockDescription": 14,
+      "tag": 12,
+      "tooltip": 12,
+      "pageInfo": 12
+    }
+  },
+
+  "component": {
+    "window": { "minWidth": 330 },
+
+    "button": {
+      "height": 40,
+      "margin": 6,
+      "activeOffset": 4,
+      "paddingBottom": 6,
+      "fontFamily": "notoBold",
+      "iconSize": 14,
+      "tooltipTop": -30,
+      "widths": { "extraSmall": 100, "small": 130, "middle": 200, "large": 272, "sidebar": 140 },
+      "borderWidth": 2,
+      "selectionSound": "click",
+      "greenSound": "button"
+    },
+
+    "checkbox": { "size": 20, "borderWidth": 2, "checkmarkSize": 27, "margin": 5 },
+
+    "switch": { "width": 58, "height": 24, "sliderSize": 28, "sliderTop": -6, "sliderLeftOff": -2, "sliderLeftOn": 28, "borderWidth": 2, "bounceMs": 175 },
+
+    "slider": { "trackHeight": 8, "thumbSize": 28, "borderWidth": 2, "contentHeight": 30, "segmentWidth": 2 },
+
+    "textField": {
+      "minHeight": 40,
+      "borderWidth": 2,
+      "padding": [10, 10, 11, 10],
+      "bottomShadow": 4,
+      "caret": "#6CC349",
+      "selectionBackground": "#6CC34980",
+      "hintTop": 11,
+      "hintLeft": 10,
+      "focusUnderlineHeight": 2
+    },
+
+    "dropdown": { "height": 40, "fontSize": 14, "margin": 6, "borderWidth": 2, "arrowWidth": 24, "checkmarkWidth": 24, "optionHeight": 40 },
+
+    "tag":     { "fontSize": 12, "marginRight": 5, "paddingX": 2 },
+    "badge":   { "size": 6, "marginRight": 6 },
+    "divider": { "thickness": 2, "marginY": 6, "boxThickness": 4, "lineThickness": 2, "lineMarginY": 1, "verticalWidth": 2, "verticalMarginX": 6 },
+    "list":    { "bulletSize": 6, "levelIndent": 16, "marginY": 10 },
+
+    "sidebar": {
+      "width": 240, "scrollerWidth": 238, "itemHeight": 40, "itemPaddingLeft": 10,
+      "titleMinHeight": 30, "detailHeight": 24, "detailMarginBottom": 24,
+      "dividerThickness": 2, "rightBorderThickness": 2, "breakpointWide": 1200, "transitionMs": 600
+    },
+
+    "scrollbar": {
+      "primaryWidth": 22, "primaryTrackWidth": 6, "primaryThumbWidth": 12, "primaryThumbMinHeight": 35,
+      "primaryTrackInset": 8, "primaryThumbBorder": 2,
+      "secondaryWidth": 18, "secondaryTrackWidth": 6, "secondaryThumbWidth": 10, "fadeMs": 1000
+    },
+
+    "modal": {
+      "minWidth": 320, "maxWidth": 600, "titleHeight": 40, "titleFontSize": 18,
+      "contentMaxHeight": 450, "contentMinHeight": 60, "closeButtonWidth": 32, "closeIconSize": 20,
+      "borderWidth": 2, "buttonAreaPaddingY": 2
+    },
+
+    "pageTitle": { "minHeight": 70, "marginY": 10, "marginX": 20, "borderBottom": 2 },
+    "mainBlock": { "minHeight": 66, "paddingY": 8, "borderWidth": 2, "marginX": 20, "spacing": 20 },
+    "mainDisplay": { "minHeight": 60, "paddingY": 8, "paddingX": 16 },
+
+    "banner": { "marginY": 10, "padding": 10, "minHeight": 30, "marginX": 20, "fontFamily": "notoBold" },
+    "pop": { "bottomOffset": 40, "maxWidthRatio": 0.9, "maxWidth": 500, "lifetimeMs": 3000, "fadeMs": 300, "maxVisible": 5, "paddingY": 10, "paddingX": 20, "marginY": 6 },
+
+    "loading": { "spinnerSize": 60, "textSize": 24, "errorImageHeight": 160, "fadeMs": 800, "holdMs": 700, "background": "#48494A" },
+
+    "showBlock": { "borderWidth": 2, "paddingY": 5, "paddingX": 17, "margin": 6, "titleSize": 17, "descriptionSize": 14, "titleIconSize": 20 },
+
+    "article": {
+      "minWidth": 270, "widthRatio": 0.9, "noteBorderLeft": 6, "notePadding": 10,
+      "listTitleBorderLeft": 6, "listTitlePadding": [4, 0, 4, 10], "titleMargin": 15, "dateMargin": 10
+    },
+
+    "sounds": {
+      "button": "button.ogg", "click": "click.ogg", "drawerOpen": "drawer_open.ogg",
+      "drawerClose": "drawer_close.ogg", "hide": "hide.ogg", "pop": "pop.ogg",
+      "toast": "toast.ogg", "xp": "xp.ogg"
+    }
+  }
+}

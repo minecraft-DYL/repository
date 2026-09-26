@@ -1,0 +1,21 @@
+<Project TreatAsLocalProperty="Platform">
+  <!--
+    TreatAsLocalProperty 是这里的关键：解决方案构建会把 Platform 当成**全局属性**
+    传给每个项目（.slnx 里没声明平台时是 Release|Any CPU -> Platform=AnyCPU），
+    而全局属性的优先级高于任何 props/targets 里的赋值。不加这一句，
+    下面的 <Platform>x64</Platform> 会被静默忽略，库就落到 bin\Release，
+    应用落到 bin\x64\Release —— 两者的 PRI 与 Content 拷贝对不上，
+    表现为应用启动即 XamlParseException，或字体没被复制过去。
+  -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <EnableDefaultPageItems>true</EnableDefaultPageItems>
+
+    <!-- WinUI 3 / Windows App SDK 没有 AnyCPU，只支持 x86/x64/arm64 -->
+    <Platform Condition="'$(Platform)' == '' or '$(Platform)' == 'AnyCPU'">x64</Platform>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+</Project>

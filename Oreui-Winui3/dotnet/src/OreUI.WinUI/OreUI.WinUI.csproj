@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+
+    <!-- WinUI 3 (Windows App SDK) 控件库 -->
+    <UseWinUI>true</UseWinUI>
+    <!--
+      注意：不要设置 GenerateLibraryLayout（那是 C++/WinRT 库的布局模式）。
+      C# 控件库必须把 XBF 嵌进程序集，否则引用方 App 的 MarkupCompilePass2
+      扫不到本库的 XAML 类型，运行时会报 “type ... is an unknown namespace”。
+    -->
+    <EnableMsixTooling>true</EnableMsixTooling>
+
+    <Platforms>x64</Platforms>
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    <UseRidGraph>true</UseRidGraph>
+
+    <RootNamespace>OreUI.WinUI</RootNamespace>
+    <AssemblyName>OreUI.WinUI</AssemblyName>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260804001" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4654" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      说明：WinUI 的库布局目标除了把 Themes/Generic.xaml 编译成 XBF（嵌进程序集、
+      供引用方的 MarkupCompilePass2 扫描类型）之外，还会把**原始 .xaml** 一并
+      复制到引用方输出的 <app>\OreUI.WinUI\Themes\ 下。实测这是库构建的固有行为，
+      运行时仍按 PRI 里的 XBF 解析，不冲突，所以不用（也没法简单地）删掉它。
+
+      OreUI 原版字体随库分发。Content 会流到引用方的输出目录，但会被放在
+      以程序集名命名的子目录下（实测：<app>\OreUI.WinUI\Assets\OreUI\Fonts\），
+      所以 xaml-src/00-tokens.xaml 里的引用必须带上 OreUI.WinUI/ 前缀：
+          ms-appx:///OreUI.WinUI/Assets/OreUI/Fonts/*.otf#<字体内部family名>
+      文件名保持上游 _source/src/assets/fonts 的原样，便于对照升级。
+    -->
+    <Content Include="Assets\OreUI\Fonts\*.*" CopyToOutputDirectory="PreserveNewest" />
+
+    <!--
+      OreUI 原版勾选图（_source/src/assets/images/check.png = 黑色，check_white.png = 白色）。
+      上游复选框是在 20x20 的方块里放一张 27x27 的 <img>（故意溢出），这里照搬。
+    -->
+    <Content Include="Assets\OreUI\Images\*.*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
