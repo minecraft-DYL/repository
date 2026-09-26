@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Wyolm.Core/Wyolm.Core.csproj" />
+    <Project Path="src/Wyolm.App/Wyolm.App.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Wyolm.Core.Tests/Wyolm.Core.Tests.csproj" />
+  </Folder>
+</Solution>

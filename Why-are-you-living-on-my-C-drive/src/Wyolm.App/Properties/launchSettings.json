@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Wyolm.App (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Wyolm.App (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <!-- LibraryImport 源生成器会生成 unsafe 代码 -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <RootNamespace>Wyolm.Core</RootNamespace>
+    <AssemblyName>Wyolm.Core</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Wyolm.Core.Tests" />
+  </ItemGroup>
+
+</Project>
