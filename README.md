@@ -48,6 +48,6 @@ AI曰：
 
 人曰：
 
-##劲爆尾杀
+## 劲爆尾杀
 
 <img width="1920" height="1080" alt="386d9fc3c64f2a97ce4e110978d88e04" src="https://github.com/user-attachments/assets/9d6205b4-755c-493b-8574-dfea2ef05dbc" />
